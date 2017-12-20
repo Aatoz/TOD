@@ -1,3 +1,28 @@
+.home-btn
+{
+	background-image: url("https://rawgit.com/Aatoz/AutoHotKey/master/res/icons/Free%20Object%20Icons/Home.ico");
+	background-repeat: no-repeat;
+	width: auto;
+	height: auto;
+	max-width: 24px;
+	max-height: 24px;
+	background-size:cover;
+}
+
+.home-label
+{
+	margin-left: 31px;
+}
+
+.postBadge
+{
+	background-image: url("https://rawgit.com/Aatoz/AutoHotKey/master/res/icons/Free%20Object%20Icons/Blue%20Sphere.ico");
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	background-size:cover;
+}
+
 /* W3MOBILE.CSS 4.07 December 2017 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */

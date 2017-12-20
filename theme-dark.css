@@ -157,13 +157,9 @@ button[class=t_small]:disabled
 	background-color: var(--highlight-color) !important;
 }
 
-iframe > #facebook,
-iframe > #facebook div,
-iframe > #facebook table,
-iframe > .plugin,
-iframe > .pluginSkinDark
+.postBadge
 {
-	color: white !important;
-	background-color: black !important;
-	background: black !important;
+	background-image: url("https://rawgit.com/Aatoz/AutoHotKey/master/res/icons/Free%20Object%20Icons/Rainbow%20Sphere.ico");
+	-webkit-filter: invert(95%) brightness(150%) contrast(105%) saturate(1); /* Safari 6.0 - 9.0 */
+	filter: invert(95%) brightness(150%) contrast(105%) saturate(1);
 }
