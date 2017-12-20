@@ -251,7 +251,10 @@
 				xhttp.onreadystatechange = function()
 				{
 					if (this.readyState == 4 && this.status == 200)
-						document.getElementById("placeholder_navmenu").innerHtml = response.text;
+					{
+						window.alert(this.responseXML);
+						document.getElementById("placeholder_navmenu").innerHtml = this.responseXML;
+					}
 				}
 
 				xhttp.open('GET', sURL, true);
