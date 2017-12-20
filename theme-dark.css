@@ -157,8 +157,10 @@ button[class=t_small]:disabled
 	background-color: var(--highlight-color) !important;
 }
 
+#facebook,
 .plugin,
 .pluginSkinDark
 {
 	background-color: black !important;
+	background: black !important;
 }
