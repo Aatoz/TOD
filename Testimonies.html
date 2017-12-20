@@ -50,7 +50,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- ALWAYS KEEP NAV IN SYNC WITH navBarInsert.html-->
-	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
+	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas w3-theme-l1">
 	<a class="navmenu-brand" href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html">
 		<div class="home-btn"><div class="home-label">Home</div></div>
 	</a>
@@ -82,14 +82,12 @@
 		</ul>
 	</div>
 
-	<div class="canvas">
-		<div class="navbar navbar-default navbar-fixed-top">
-			<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
+	<div class="navbar navbar-default navbar-fixed-top">
+	  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>
 	</div>
 
 	<!-- w3-content defines a container for fixed size centered content, 
