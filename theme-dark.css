@@ -23,7 +23,6 @@ body,
 	color: var(--text-color);
 }
 
-.pluginSkinDark,
 html
 {
 	background-color: #333333 !important; // can't set this using local var.

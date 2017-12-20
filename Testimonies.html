@@ -406,6 +406,14 @@
 				var vThemeNode = document.getElementById("theme-css");
 				vW3ThemeNode.href = "https://www.w3schools.com/lib/w3-theme-black.css"
 				vThemeNode.href = "theme-dark.css"
+
+				// These stubborn little nodes just won't take my css.
+				var avFBNodes = document.getElementsByClassName("pluginSkinDark");
+				for (var iNode = 0; iNode < avFBNodes.length; ++iNode)
+				{
+					var vNode = avFBNodes[iNode];
+					vNode.setAttribute("background-color", "red");
+				}
 			}
 		</script>
 
