@@ -163,6 +163,7 @@ iframe > #facebook table,
 iframe > .plugin,
 iframe > .pluginSkinDark
 {
+	color: white !important;
 	background-color: black !important;
 	background: black !important;
 }
