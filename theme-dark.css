@@ -1,6 +1,7 @@
 :root
 {
 	--background-color: #333333;
+	--bg-color-background: transparent !important;
 	--text-color: #000;
 	--border-color: #dadada;
 	--base-3: #aaa;
@@ -156,6 +157,7 @@ button[class=t_small]:disabled
 	background-color: var(--highlight-color) !important;
 }
 
+.plugin,
 .pluginSkinDark
 {
 	background-color: black !important;
