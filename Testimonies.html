@@ -49,7 +49,7 @@
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
 	<a class="navmenu-brand" href="#">Menu</a>
 		<ul class="nav navmenu-nav">
-			<li><a href="../navmenu/">Browse</a></li>
+			<li><a href="/Browse.html">Browse</a></li>
 		</ul>
 		<ul class="nav navmenu-nav">
 			<li><a href="../about.html/">About</a></li>
@@ -103,13 +103,12 @@
 			<!-- Blog entry -->
 			<div class="w3-card-4 w3-margin w3-theme">
 				<div class="w3-container">
-					<h3><b>Healing from Arthritis</b></h3>
-					<h5><span class="w3-opacity">December 18, 2017</span></h5>
+					<h3><b id="placeholder_Title1"></b></h3>
+					<h5><span class="w3-opacity" id="placeholder_Date1"></span></h5>
 				</div>
 
 				<div class="w3-container">
-					<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
-						tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+					<p id="placeholder_P1"></p>
 					<div class="w3-row">
 						<div class="w3-col m8 s12">
 							<p><button class="w3-button w3-padding-large w3-border"><b>READ MORE &#187</b></button></p>
@@ -124,7 +123,7 @@
 		<!-- Blog entry -->
 		<div class="w3-card-4 w3-margin w3-theme">
 			<div class="w3-container">
-				<h3><b>Delvierance from Oppression</b></h3>
+				<h3><b>Deliverance from Oppression</b></h3>
 				<h5><span class="w3-opacity">December 17, 2017</span></h5>
 			</div>
 
@@ -145,8 +144,8 @@
 		<!-- Blog entry -->
 		<div class="w3-card-4 w3-margin w3-theme">
 			<div class="w3-container">
-				<h3><b>Delvierance from Oppression</b></h3>
-				<h5><span class="w3-opacity">December 17, 2017</span></h5>
+				<h3><b>Inner Healing</b></h3>
+				<h5><span class="w3-opacity">December 16, 2017</span></h5>
 			</div>
 
 			<div class="w3-container">
@@ -290,7 +289,7 @@
 
 					xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
-							parseXML(this)
+							parseXML(this);
 						}
 					};
 
@@ -310,13 +309,16 @@
 				var vHead = vXMLDoc.getElementsByTagName("meta");
 				var vDate = vHead[0].getAttribute('content');
 
-				var vListNode = document.createElement("LI");                 // Create a <li> node
+				var vListNode = document.createElement("LI");
 				var vLinkNode = document.createElement("A");
 				var vTextNode = document.createTextNode(vDate);
 				vLinkNode.setAttribute("href", vXML.responseURL);
 				vLinkNode.appendChild(vTextNode);
 				vListNode.appendChild(vLinkNode);
-				document.getElementById("placeholderList").appendChild(vListNode);     // Append <li> to <ul>
+				document.getElementById("placeholderList").appendChild(vListNode);
+
+				window.alert(vXMLDoc.getElementById("Title"));
+				document.getElementById("placeholder_Title1").nodeValue = vXMLDoc.getElementById("Title").nodeValue;
 			}
 
 			function transferComplete(evt) {
@@ -327,7 +329,7 @@
 				if (g_bLoaded)
 				{
 					// Now add the "More..." link.
-					var avNodes = [{"Divider":"Divider"}, {"sText":"More...", "href":"/../Browse.html"}];
+					var avNodes = [{"Divider":"Divider"}, {"sText":"More...", "href":"/Browse.html"}];
 					for (var iNode = 0; iNode < avNodes.length; ++iNode) {
 						var vData = avNodes[iNode];
 						var bCreateLink = (vData.href !== undefined);
