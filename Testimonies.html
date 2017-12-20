@@ -299,13 +299,16 @@
 
 					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
 
-					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
+					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.html', true);
+					xhttp.responseType = "document";
 					xhttp.send();
 				}
 			}
 
 			function parseXML(vXML) {
 				vXMLDoc = vXML.responseXML;
+				console.log(vXML.responseXML);
+				window.alert(this.responseXML);
 				var vHead = vXMLDoc.getElementsByTagName("meta");
 				var vDate = vHead[0].getAttribute('content');
 
@@ -317,7 +320,7 @@
 				vListNode.appendChild(vLinkNode);
 				document.getElementById("placeholderList").appendChild(vListNode);
 
-				window.alert(vXMLDoc.getElementById("Title"));
+				console.log(vXMLDoc.getElementById("Title"));
 				document.getElementById("placeholder_Title1").nodeValue = vXMLDoc.getElementById("Title").nodeValue;
 			}
 
