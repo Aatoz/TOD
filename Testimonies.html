@@ -116,7 +116,7 @@
 						<div class="w3-col m8 s12">
 							<p><button id="readMore1" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
 						<!-- Your like button code -->
-						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+						<div id="likeBtn1" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 						</div>
 					</div>
 				</div>
@@ -136,7 +136,7 @@
 					<div class="w3-col m8 s12">
 						<p><button id="readMore2" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
 						<!-- Your like button code -->
-						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+						<div id="likeBtn2" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 					</div>
 				</div>
 			</div>
@@ -156,7 +156,7 @@
 					<div class="w3-col m8 s12">
 						<p><button id="readMore3" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
 						<!-- Your like button code -->
-						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+						<div id="likeBtn3" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 					</div>
 				</div>
 			</div>
@@ -351,6 +351,7 @@
 					document.getElementById("placeholder_Title" + g_iDocCount).textContent = sTitle;
 					document.getElementById("placeholder_P" + g_iDocCount).textContent = sPreview;
 					document.getElementById("readMore" + g_iDocCount).setAttribute('onclick', "location.href='" + sURL + "'");
+					document.getElementById("likeBtn" + g_iDocCount).setAttribute('data-href', sURL);
 
 					vXMLDoc = null;
 				}
