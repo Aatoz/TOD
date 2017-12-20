@@ -62,7 +62,7 @@
 		<ul class="nav navmenu-nav">
 			<li class="dropdown open">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testimonies <b class="caret"></b></a>
-				<ul class="dropdown-menu navmenu-nav" id=placeholderList>
+				<ul class="dropdown-menu navmenu-nav" id="placeholderList">
 					<li class="dropdown-header">By Date</li>
 				</ul>
 			</li>
@@ -252,6 +252,7 @@
 		<script>
 
 			var g_iDaysCount = 0;
+			var g_iDocCount = 0;
 			var g_bLoaded = false;
 
 			if(window.attachEvent) {
@@ -289,8 +290,8 @@
 
 					xhttp.addEventListener("error", transferFailed);
 					xhttp.addEventListener("load", transferComplete);
-					xhttp.responseType = 'document';
-					xhttp.overrideMimeType('text/xml');
+					//xhttp.responseType = 'document';
+					//xhttp.overrideMimeType('text/xml');
 
 					xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
@@ -305,28 +306,45 @@
 					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
 
 					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', false);
-					xhttp.responseType = "document";
 					xhttp.send();
 				}
 			}
 
-			function parseXML(vXML) {
-				vXMLDoc = vXML.responseXML;
-				console.log(vXML.responseXML);
-				window.alert(this.responseXML);
+			function parseXML(vHttp) {
+				g_iDocCount++;
+
+				vXMLDoc = vHttp.responseXML;
+				console.log(vHttp.responseXML);
+
 				var vHead = vXMLDoc.getElementsByTagName("meta");
 				var vDate = vHead[0].getAttribute('content');
 
 				var vListNode = document.createElement("LI");
 				var vLinkNode = document.createElement("A");
 				var vTextNode = document.createTextNode(vDate);
-				vLinkNode.setAttribute("href", vXML.responseURL);
+				vLinkNode.setAttribute("href", vHttp.responseURL);
 				vLinkNode.appendChild(vTextNode);
 				vListNode.appendChild(vLinkNode);
 				document.getElementById("placeholderList").appendChild(vListNode);
 
-				console.log(vXMLDoc.getElementById("Title"));
-				document.getElementById("placeholder_Title1").nodeValue = vXMLDoc.getElementById("Title").nodeValue;
+				// Load preview for 1st 3 days.
+				var vDate = new Date();
+
+				//  Decrement days that we load.
+				//var vDayOfMonth = vDate.getDate();
+				//vDate.setDate(vDayOfMonth - 1);
+
+				var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
+				if (g_iDocCount < 4)
+				{
+					var sDate = vXMLDoc.getElementById("date").childNodes[0].nodeValue;
+					var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
+					var sPreview = vXMLDoc.getElementById("first_P").childNodes[0].nodeValue;
+
+					document.getElementById("placeholder_Date" + g_iDocCount).textContent = sDate;
+					document.getElementById("placeholder_Title" + g_iDocCount).textContent = sTitle;
+					document.getElementById("placeholder_P" + g_iDocCount).textContent = sPreview;
+				}
 			}
 
 			function transferComplete(evt) {
