@@ -2,6 +2,7 @@
 	<head>
 		<title>Testimony of the Day</title>
 		<meta charset="UTF-8">
+		<meta http-equiv="Cache-control" content="public">
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -111,7 +112,7 @@
 					<p id="placeholder_P1"></p>
 					<div class="w3-row">
 						<div class="w3-col m8 s12">
-							<p><button class="w3-button w3-padding-large w3-border"><b>READ MORE &#187</b></button></p>
+							<p><button id="readMore1" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
 						<!-- Your like button code -->
 						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 						</div>
@@ -131,7 +132,7 @@
 				<p id="placeholder_P2"></p>
 				<div class="w3-row">
 					<div class="w3-col m8 s12">
-						<p><button class="w3-button w3-padding-large w3-border"><b>READ MORE &#187</b></button></p>
+						<p><button id="readMore2" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b
 						<!-- Your like button code -->
 						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 					</div>
@@ -151,7 +152,7 @@
 				<p id="placeholder_P3"></p>
 				<div class="w3-row">
 					<div class="w3-col m8 s12">
-						<p><button class="w3-button w3-padding-large w3-border"><b>READ MORE &#187</b></button></p>
+						<p><button id="readMore3" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b
 						<!-- Your like button code -->
 						<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
 					</div>
@@ -298,7 +299,8 @@
 
 					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
 
-					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', false);
+					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
+					console.log(sDateStr);
 					xhttp.send();
 				}
 			}
@@ -307,7 +309,8 @@
 				g_iDocCount++;
 
 				vXMLDoc = vHttp.responseXML;
-				console.log(vHttp.responseXML);
+				console.log(vHttp.responseURL);
+				console.log(vXMLDoc);
 
 				var vHead = vXMLDoc.getElementsByTagName("meta");
 				var vDate = vHead[0].getAttribute('content');
@@ -333,10 +336,21 @@
 					var sDate = vXMLDoc.getElementById("date").childNodes[0].nodeValue;
 					var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
 					var sPreview = vXMLDoc.getElementById("first_P").childNodes[0].nodeValue;
+					var sURL = vHttp.responseURL;
+					sURL = sURL.replace("xml", "html");
+
+					console.log(g_iDocCount);
+					console.log(sDate);
+					console.log(sTitle);
+					console.log(sPreview);
+					console.log(sURL);
 
 					document.getElementById("placeholder_Date" + g_iDocCount).textContent = sDate;
 					document.getElementById("placeholder_Title" + g_iDocCount).textContent = sTitle;
 					document.getElementById("placeholder_P" + g_iDocCount).textContent = sPreview;
+					document.getElementById("readMore" + g_iDocCount).setAttribute('onclick', "location.href='" + sURL + "'");
+
+					vXMLDoc = null;
 				}
 			}
 
