@@ -36,6 +36,17 @@
 	</head>
 	<body>
 
+	<!-- Facebook JavaScript SDK-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Facebook JavaScript SDK-->
+
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
 	<a class="navmenu-brand" href="#">Menu</a>
 		<ul class="nav navmenu-nav">
@@ -103,6 +114,7 @@
 					<div class="w3-row">
 						<div class="w3-col m8 s12">
 							<p><button class="w3-button w3-padding-large w3-border"><b>READ MORE &#187</b></button></p>
+							<div class="fb-like" data-href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 						</div>
 					</div>
 				</div>
