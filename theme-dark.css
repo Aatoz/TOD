@@ -17,15 +17,11 @@
 .navmenu-default,
 html,
 body,
-.theme
+.theme,
+.pluginSkinDark
 {
 	background-color: var(--background-color);
 	color: var(--text-color);
-}
-
-body.plugin
-{
-	background-color: black !important; // can't set this using local var.
 }
 
 html
