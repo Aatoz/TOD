@@ -158,6 +158,8 @@ button[class=t_small]:disabled
 }
 
 #facebook,
+#facebook div,
+#facebook table,
 .plugin,
 .pluginSkinDark
 {
