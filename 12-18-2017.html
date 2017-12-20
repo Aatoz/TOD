@@ -46,7 +46,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-	<div id="placeholder_navmenu">
+	<div id="placeholder_navmenu"></div>
 
 	<!-- w3-content defines a container for fixed size centered content, 
 	and is wrapped around the whole page content, except for the footer in this example -->
@@ -192,8 +192,6 @@
 
 			function onLoad()
 			{
-				loadNavbar();
-
 				var vDate = new Date();
 
 				// Load the last 5 days
@@ -225,7 +223,7 @@
 
 					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
 
-					xhttp.open('GET', 'https://cdn.rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
+					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
 					xhttp.send();
 				}
 			}
