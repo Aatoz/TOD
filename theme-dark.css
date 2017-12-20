@@ -157,11 +157,11 @@ button[class=t_small]:disabled
 	background-color: var(--highlight-color) !important;
 }
 
-#facebook,
-#facebook div,
-#facebook table,
-.plugin,
-.pluginSkinDark
+iframe > #facebook,
+iframe > #facebook div,
+iframe > #facebook table,
+iframe > .plugin,
+iframe > .pluginSkinDark
 {
 	background-color: black !important;
 	background: black !important;
