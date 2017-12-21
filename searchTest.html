@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testimony of the Day</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-control" content="public">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+	<!-- Bootstrap core CSS -->
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<link href="jasny-bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="navmenu.css" rel="stylesheet">
+	<link href="generic.css" rel="stylesheet">
+	<link rel="stylesheet" href="theme-dark.css" rel="stylesheet" id="theme-css"> 
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" id="w3-theme-css">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#0000ff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#4285f4">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
+</head>
+<body>
+<button id="button" onclick="func()">Click Me</button>
+
+
+<script>
+function func() {
+		var xhttp;
+      if (window.XMLHttpRequest) {
+         // code for modern browsers
+         xhttp = new XMLHttpRequest();
+      } else {
+         // code for IE6, IE5
+         xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+
+      xhttp.addEventListener("error", transferFailed);
+      xhttp.addEventListener("load", transferComplete);
+      //xhttp.responseType = 'document';
+      //xhttp.overrideMimeType('text/xml');
+      
+      xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            doTest(this);
+         }
+      };
+
+      xhttp.open('GET', 'https://github.com/Aatoz/TOD/find/master', true);
+      xhttp.send();
+}
+
+function doTest(vHTTP) {
+	console.log(vHTTP);
+   var operationsHTML = vHTTP.responseText;
+   console.log(operationsHTML);
+
+   var linkStart = 0
+   var linkEnd = 0
+   while (linkStart <= linkEnd) {
+      linkStart = operationsHTML.indexOf('<a', linkEnd);
+      if (linkStart > -1) {
+         linkEnd = operationsHTML.indexOf('</a>', linkStart) + 4;
+      
+         if (linkEnd > -1) {
+            var hvs = operationsHTML.indexOf('href="', linkStart) + 6;
+            var hve = operationsHTML.indexOf('"', hvs) - 1;
+            var tnvs = operationsHTML.indexOf('>', linkStart) + 1;
+            var tnve = operationsHTML.indexOf('<', tnvs) - 1;
+            if (operationsHTML.substring(hvs, hve) == operationsHTML.substring(tnvs, tnve)) {
+               alert(operationsHTML.substring(tnvs, tnve))
+               operations[operationsHTML.substring(tnvs, tnve)] = null;
+            }
+         }
+      }
+   }
+}
+
+function transferFailed(evt) {
+	window.alert("An error occurred while transferring the file.");
+}
+
+function transferComplete(evt) {
+	//window.alert("The transfer is complete." + event.returnValue);
+}
+</script>
+</body>
+</html>

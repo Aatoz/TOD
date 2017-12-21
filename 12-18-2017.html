@@ -52,7 +52,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="placeholder_navmenu"></div>
-
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
 <div style="max-width:1400px">
@@ -144,11 +143,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 				<h4>Tags</h4>
 			</div>
 			<div class="w3-container">
-				<p><span class="w3-tag w3-margin-bottom">Travel</span> <span class="w3-tag w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-small w3-margin-bottom">London</span>
-				<span class="w3-tag w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-small w3-margin-bottom">DIY</span>
-				<span class="w3-tag w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-small w3-margin-bottom">Family</span>
-				<span class="w3-tag w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-small w3-margin-bottom">Shopping</span>
-				<span class="w3-tag w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-small w3-margin-bottom">Games</span>
+				<p id="placeholder_tags">
 				</p>
 			</div>
 		</div>
@@ -246,13 +241,26 @@ and is wrapped around the whole page content, except for the footer in this exam
 			var vHead = vXMLDoc.getElementsByTagName("meta");
 			var vDate = vHead[0].getAttribute('content');
 
-			var vListNode = document.createElement("LI");                 // Create a <li> node
+			var vListNode = document.createElement("LI");
 			var vLinkNode = document.createElement("A");
 			var vTextNode = document.createTextNode(vDate);
 			vLinkNode.setAttribute("href", vXML.responseURL);
 			vLinkNode.appendChild(vTextNode);
 			vListNode.appendChild(vLinkNode);
 			document.getElementById("placeholderList").appendChild(vListNode);
+
+			var avTags = vXMLDoc.getElementsByClassName("w3-tag");
+			console.log(avTags.length);
+			for (var iTag = 0; iTag < avTags.length; ++iTag) {
+				var sTag = avTags[iTag].textContent;
+				var sClass = avTags[iTag].getAttribute("class");
+
+				var vSpanNode = document.createElement("SPAN");
+				var vTextNode = document.createTextNode(sTag);
+				vSpanNode.appendChild(vTextNode);
+				vSpanNode.setAttribute("class", sClass);
+				document.getElementById("placeholder_tags").appendChild(vSpanNode);
+			}
 		}
 
 		function transferComplete(evt) {

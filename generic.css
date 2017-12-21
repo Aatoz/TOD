@@ -23,6 +23,51 @@
 	background-size:cover;
 }
 
+#search {
+	display:inline-block;
+	margin-left: 15px;
+	border: solid 1px #ccc;
+	position:relative;
+}
+#search #searchField, #search #searchSubmit{
+	padding:5px;
+	margin:0px;
+}
+#search #searchField{
+	width:98%;
+	border:none;
+	margin-right:50px;
+}
+#search #searchField:focus{
+	outline: 0;
+}
+#search #searchSubmit{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:50px;
+	background: #ccc url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-24.png') center center no-repeat;
+	border:none;
+}
+
+#livesearch
+{
+	//position: absolute;
+	position: relative;
+	z-index: 1;
+}
+
+#livesearch > tbody > tr > td > a
+{
+	margin-left: 15px;
+}
+
+#livesearch > tbody > tr:hover > td
+{
+	background-color: blue
+}
+
+
 /* W3MOBILE.CSS 4.07 December 2017 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */

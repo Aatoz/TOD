@@ -55,6 +55,12 @@
 		<div class="home-btn"><div class="home-label">Home</div></div>
 	</a>
 		<ul class="nav navmenu-nav">
+			<li id="search">
+				<input id="searchField" autocomplete="off" type="text" placeholder="Search..."/>
+				<input id="searchSubmit" type="submit" value="" /></li>
+				<table id="livesearch"></table>
+		</ul>
+		<ul class="nav navmenu-nav">
 			<li><a href="/Browse.html">Browse</a></li>
 		</ul>
 		<ul class="nav navmenu-nav">
@@ -381,6 +387,95 @@
 
 			function transferFailed(evt) {
 				window.alert("An error occurred while transferring the file.");
+			}
+
+			var thread = null;
+			$('#searchField').keyup(function() {
+				clearTimeout(thread);
+				var $this = $(this); thread = setTimeout(function(){doSearch($this.val())}, 1000);
+			});
+
+			function doSearch(sSearch) {
+				if (sSearch.length == 0) {
+					document.getElementById("livesearch").innerHTML = "";
+					document.getElementById("livesearch").style.border = "0px";
+					return;
+				}
+
+				var xhttp;
+				if (window.XMLHttpRequest) {
+					// code for modern browsers
+					xhttp = new XMLHttpRequest();
+					} else {
+					// code for IE6, IE5
+					xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				xhttp.addEventListener("error", transferFailed);
+				xhttp.addEventListener("load", transferComplete);
+				//xhttp.responseType = 'document';
+				//xhttp.overrideMimeType('text/xml');
+
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						searchFile(sSearch, this);
+					}
+				};
+
+				xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/12-18-2017.xml', true);
+				xhttp.send();
+			}
+
+			function searchFile(sSearch, vHttp)
+			{
+				vXMLDoc = vHttp.responseXML;
+				console.log(sSearch);
+				console.log(vXMLDoc);
+
+				var avNodes = vXMLDoc.getElementsByClassName("w3-tag");
+				console.log(avNodes.length);
+				var avMatches = [];
+				for (var iNode = 0; iNode < avNodes.length; ++iNode) {
+					var vNode = avNodes[iNode];
+					//console.log(vNode);
+
+					var sTag = vNode.childNodes[0].nodeValue;
+					//console.log(sTag);
+
+					var myRegExp = new RegExp(sSearch, "i");
+					//console.log(myRegExp);
+					if (myRegExp.test(sTag)) {
+						avMatches.push(sTag);
+					}
+					//else console.log("No match");
+				}
+
+				// Now output matches in div beneath search box.
+				var sOutput = "";
+				if (avMatches.length == 0)
+					sOutput = "No results found"
+				else
+				{
+					for (var iMatch = 0; iMatch < avMatches.length; ++iMatch)
+					{
+						var sMatch = avMatches[iMatch];
+
+						var sElem = "<tr><td><a href='" + vHttp.responseURL + "'>" + sMatch + "</a></td></tr>";
+						console.log(sElem);
+						sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
+					}
+					console.log(sOutput);
+					sOutput += "</tbody>"
+				}
+				document.getElementById("livesearch").innerHTML = sOutput;
+				document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+
+				// TODO: Resize to match search box.
+				console.log(document.getElementById("searchField").offsetWidth);
+				document.getElementById("livesearch").style.width = document.getElementById("searchField").offsetWidth + "px";
+				var rect = document.getElementById("searchField").getBoundingClientRect();
+				console.log(rect.top, rect.right, rect.bottom, rect.left);
+				document.getElementById("livesearch").style.left = rect.left + "px";
 			}
 
 			function doLight()
