@@ -454,6 +454,11 @@
 				console.log("Search: " + sSearch);
 				console.log(vXMLDoc);
 
+				var vTitleNode = vXMLDoc.getElementById("title");
+				if (vTitleNode.childNodes.length == 0)
+					sTitle = vTitleNode.nodeValue;
+				else sTitle = vTitleNode.childNodes[0].nodeValue;
+
 				var avNodes = vXMLDoc.getElementsByClassName("w3-tag");
 				console.log(avNodes.length);
 				var avMatches = [];
@@ -466,7 +471,7 @@
 
 					var myRegExp = new RegExp(sSearch, "i");
 					//console.log(myRegExp);
-					if (myRegExp.test(sTag)) {
+					if (myRegExp.test(sTag) || myRegExp.test(sTitle)) {
 						avMatches.push(sTag);
 						break; // defer showing actual matches for speed. Display article instead.
 					}
@@ -474,7 +479,6 @@
 				}
 
 				// Now output matches in div beneath search box.
-				var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
 				// TODO: Truncate title at ... characters.
 				console.log(sTitle);
 				var sOutput = "";
