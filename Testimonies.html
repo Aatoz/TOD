@@ -249,6 +249,8 @@
 
 			var g_bDoSearchLoop = true;
 			var g_bSearchFoundAnyFile = false;
+			var g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
+			var g_iCurrent = 0;
 
 			if(window.attachEvent) {
 				window.attachEvent('onload', onLoad);
@@ -408,7 +410,7 @@
 				var vDayOfMonth = vDate.getDate();
 				vDate.setDate(vDayOfMonth + 1);
 
-				for (var iDay = 0; iDay < 5475; ++iDay) // try as fr back as 15 years worth of data -- that'll hold for awhile!
+				for (var iDay = g_iCurrent; iDay < g_iDays; g_iCurrent++, iDay++)
 				{
 					// Decrement days that we load.
 					vDayOfMonth = vDate.getDate();
@@ -418,7 +420,7 @@
 
 					xhr("get", "https://rawgit.com/Aatoz/TOD/master/" + sDateStr + ".xml", function(data, vHTTP) {
 
-						console.log("Data: " + data);
+						//console.log("Data: " + data);
 						if (data.length === 0 || data.indexOf("404: Not Found") > -1)
 						{
 							g_bDoSearchLoop = !g_bSearchFoundAnyFile;
@@ -446,13 +448,16 @@
 					document.getElementById("livesearch").innerHTML = "No results found";
 					document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
 				}
+
+				if (g_iCurrent < g_iDays)
+					window.setTimeout(doSearch, 0);
 			}
 
 			function searchFile(sSearch, vHttp)
 			{
 				vXMLDoc = vHttp.responseXML;
 				console.log("Search: " + sSearch);
-				console.log(vXMLDoc);
+				//console.log(vXMLDoc);
 
 				var vTitleNode = vXMLDoc.getElementById("title");
 				if (vTitleNode.childNodes.length == 0)
@@ -464,9 +469,14 @@
 				var avMatches = [];
 				for (var iNode = 0; iNode < avNodes.length; ++iNode) {
 					var vNode = avNodes[iNode];
+					if (vNode === null)
+						continue;
 					//console.log(vNode);
 
-					var sTag = vNode.childNodes[0].nodeValue;
+					var sTag = "";
+					if (vNode.childNodes.length === 0 )
+						sTag = vNode.nodeValue;
+					else sTag = vNode.childNodes[0].nodeValue;
 					//console.log(sTag);
 
 					var myRegExp = new RegExp(sSearch, "i");
@@ -497,11 +507,9 @@
 				else document.getElementById("livesearch").innerHTML = sOutput;
 				document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
 
-				// TODO: Resize to match search box.
-				console.log(document.getElementById("searchField").offsetWidth);
+				// Resize to match search box.
 				document.getElementById("livesearch").style.width = document.getElementById("searchField").offsetWidth + "px";
 				var rect = document.getElementById("searchField").getBoundingClientRect();
-				console.log(rect.top, rect.right, rect.bottom, rect.left);
 				document.getElementById("livesearch").style.left = rect.left + "px";
 			}
 
