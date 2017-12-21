@@ -30,4 +30,11 @@
 		</div>
 	</div>
 </div>
+
+<span class="w3-tag w3-small w3-margin-bottom">News</span>
+<span class="w3-tag w3-small w3-margin-bottom">Clothing</span>
+<span class="w3-tag w3-small w3-margin-bottom">Shopping</span>
+<span class="w3-tag w3-small w3-margin-bottom">Sports</span>
+<span class="w3-tag w3-small w3-margin-bottom">Games</span>
+
 </body>

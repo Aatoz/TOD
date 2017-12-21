@@ -468,17 +468,21 @@
 					//console.log(myRegExp);
 					if (myRegExp.test(sTag)) {
 						avMatches.push(sTag);
+						break; // defer showing actual matches for speed. Display article instead.
 					}
 					else console.log("No match");
 				}
 
 				// Now output matches in div beneath search box.
+				var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
+				// TODO: Truncate title at ... characters.
+				console.log(sTitle);
 				var sOutput = "";
 				for (var iMatch = 0; iMatch < avMatches.length; ++iMatch)
 				{
 					var sMatch = avMatches[iMatch];
 
-					var sElem = "<tr><td><a href='" + vHttp.responseURL + "'>" + sMatch + "</a></td></tr>";
+					var sElem = "<tr><td><a href='" + vHttp.responseURL.replace("xml", "html") + "'>" + sTitle + "</a></td></tr>";
 					console.log(sElem);
 					sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
 				}
