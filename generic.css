@@ -57,11 +57,6 @@
 	z-index: 1;
 }
 
-#livesearch > tbody > tr > td > a
-{
-	margin-left: 15px;
-}
-
 #livesearch > tbody > tr:hover > td
 {
 	background-color: blue

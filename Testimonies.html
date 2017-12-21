@@ -482,7 +482,7 @@
 				{
 					var sMatch = avMatches[iMatch];
 
-					var sElem = "<tr><td><a href='" + vHttp.responseURL.replace("xml", "html") + "'>" + sTitle + "</a></td></tr>";
+					var sElem = "<tr><td><div class='w3-left w3-margin-right postBadge'></div><a href='" + vHttp.responseURL.replace("xml", "html") + "'>" + sTitle + "</a></td></tr>";
 					console.log(sElem);
 					sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
 				}
