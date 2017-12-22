@@ -248,7 +248,6 @@
 			var g_bLoaded = false;
 
 			var g_bDoSearchLoop = true;
-			var g_bSearchFoundAnyFile = false;
 			var g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
 			var g_iCurrent = -1;
 
@@ -399,12 +398,27 @@
 				clearTimeout(thread);
 				var $this = $(this);
 
+				if ($this.val().length <= 0)
+				{
+					document.getElementById("livesearch").innerHTML = "";
+					resetGlobals();
+
+					return;
+				}
+				else g_bDoSearchLoop = true;
+
 				thread = setTimeout(function() {
 
 					g_hSearchThread = setInterval(function(){ doSearch($this.val()) }, 100);
 
 				}, 1000);
 			});
+
+			function resetGlobals() {
+				g_bDoSearchLoop = false;
+				g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
+				g_iCurrent = -1;
+			}
 
 			function doSearch(sSearch) {
 				g_iCurrent++;
@@ -415,8 +429,9 @@
 				if (sSearch.length == 0 || !g_bDoSearchLoop || g_iCurrent >= g_iDays) {
 
 					console.log("Done searching.");
-					g_bDoSearchLoop = false;
 					clearInterval(g_hSearchThread);
+
+					resetGlobals();
 
 					if (document.getElementById("livesearch").innerHTML.length == 0) {
 						document.getElementById("livesearch").innerHTML = "No results found";
@@ -438,7 +453,7 @@
 					//console.log("Data: " + data);
 					if (data.length === 0 || data.indexOf("404: Not Found") > -1)
 					{
-						g_bDoSearchLoop = !g_bSearchFoundAnyFile;
+						g_bDoSearchLoop = !searchFoundAnyFile();
 						if (!g_bDoSearchLoop)
 							console.log("Done looping");
 						console.log("File not found, still looping.");
@@ -448,7 +463,6 @@
 						searchFile(sSearch, vHTTP);
 
 						console.log("Found file");
-						g_bSearchFoundAnyFile = true;
 					}
 				});
 
@@ -459,7 +473,13 @@
 				}
 
 				g_bDoSearchLoop = true;
-				g_bSearchFoundAnyFile = false;
+			}
+
+			function searchFoundAnyFile() {
+				var sResults = document.getElementById("livesearch").innerHTML;
+
+				return
+					sResults.length > 0 && sResults !== "No results found";
 			}
 
 			function searchFile(sSearch, vHttp)
@@ -469,6 +489,9 @@
 				//console.log(vXMLDoc);
 
 				var vTitleNode = vXMLDoc.getElementById("title");
+				if (vTitleNode == null)
+					return;
+
 				if (vTitleNode.childNodes.length == 0)
 					sTitle = vTitleNode.nodeValue;
 				else sTitle = vTitleNode.childNodes[0].nodeValue;
@@ -511,7 +534,12 @@
 				}
 				console.log(sOutput);
 				sOutput += "</tbody>"
-				if (g_bSearchFoundAnyFile)
+
+				var bSearchFoundAnyFile = false;
+				var sResults = document.getElementById("livesearch").innerHTML;
+				bSearchFoundAnyFile = sResults.length > 0 && sResults !== "No results found";
+
+				if (bSearchFoundAnyFile)
 					document.getElementById("livesearch").innerHTML += sOutput;
 				else document.getElementById("livesearch").innerHTML = sOutput;
 				document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
