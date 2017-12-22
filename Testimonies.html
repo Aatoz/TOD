@@ -15,8 +15,8 @@
 	<!-- Custom styles for this template -->
 	<link href="navmenu.css" rel="stylesheet">
 	<link href="generic.css" rel="stylesheet">
-	<link rel="stylesheet" href="theme-dark.css" rel="stylesheet" id="theme-css"> 
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" id="w3-theme-css">
+	<link rel="stylesheet" href="theme-light.css" rel="stylesheet" id="theme-css"> 
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-white.css" id="w3-theme-css">
 
 	<!-- You can use open graph tags to customize link previews.
 	Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
@@ -64,6 +64,11 @@
 							<td>
 								<img src="https://media1.tenor.com/images/ff2de05a118449ba4798d6a6e3147710/tenor.gif" alt="Searching..." class="spinner">
 								</img>
+							</td>
+						</tr>
+						<tr id="noResultsRow">
+							<td>
+								<div>No results found</div>
 							</td>
 						</tr>
 					</tbody>
@@ -408,9 +413,15 @@
 				clearTimeout(thread);
 				var $this = $(this);
 
+				hideNoResultsRow();
 				if ($this.val().length <= 0)
 				{
+					var vSpinnerRowNode = document.getElementById("spinnerRow");
+					var vNoResultsRowNode = document.getElementById("noResultsRow");
 					document.getElementById("livesearch").innerHTML = "";
+					document.getElementById("livesearch").appendChild(vSpinnerRowNode);
+					document.getElementById("livesearch").appendChild(vNoResultsRowNode);
+
 					resetGlobals();
 					hideSearchSpinner();
 
@@ -445,8 +456,18 @@
 			function hideSearchSpinner() {
 				console.log("Hide spinner");
 				console.log(document.getElementById("spinnerRow"));
-				document.getElementById("spinnerRow").style.display = "none";
+				if (document.getElementById("spinnerRow").style.display !== "none")
+					document.getElementById("spinnerRow").style.display = "none";
 				console.log(document.getElementById("spinnerRow").style.display);
+			}
+
+			function showNoResultsRow() {
+				document.getElementById("noResultsRow").style.display = "grid";
+			}
+
+			function hideNoResultsRow() {
+				if (document.getElementById("noResultsRow").style.display !== "none")
+					document.getElementById("noResultsRow").style.display = "none";
 			}
 
 			function doSearch(sSearch) {
@@ -463,10 +484,8 @@
 					resetGlobals();
 					hideSearchSpinner();
 
-					if (document.getElementById("livesearch").innerHTML.length == 0) {
-						document.getElementById("livesearch").innerHTML = "No results found";
-						document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-					}
+					if (document.getElementById("livesearch").getElementsByTagName("tr").length < 3)
+						showNoResultsRow();
 
 					return;
 				}
@@ -506,10 +525,7 @@
 			}
 
 			function searchFoundAnyFile() {
-				var sResults = document.getElementById("livesearch").innerHTML;
-
-				return
-					sResults.length > 0 && sResults !== "No results found";
+				return document.getElementById("livesearch").getElementsByTagName("tr").length > 2;
 			}
 
 			function searchFile(sSearch, vHttp)

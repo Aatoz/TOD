@@ -57,7 +57,8 @@
 	z-index: 1;
 }
 
-#livesearch > tr:hover:not(#spinnerRow) > td
+#livesearch > tr:hover:not(#spinnerRow) > td.
+#livesearch > tr:hover:not(#noResultsRow) > td
 {
 	background-color: blue;
 	cursor: pointer;
@@ -78,7 +79,8 @@
 	text-decoration: none !important;
 }
 
-#spinnerRow
+#spinnerRow,
+#noResultsRow
 {
 	display: none;
 }
