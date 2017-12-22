@@ -1,44 +1,60 @@
-	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
+<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
 	<a class="navmenu-brand" href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html">
 		<div class="home-btn"><div class="home-label">Home</div></div>
 	</a>
-		<ul class="nav navmenu-nav">
-			<li><input type=text>Search</a></li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li><a href="../navmenu/">Browse</a></li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li><a href="../about.html/">About</a></li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li class="dropdown open">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testimonies <b class="caret"></b></a>
-				<ul class="dropdown-menu navmenu-nav" id="placeholderList">
-					<li class="dropdown-header">By Date</li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
-				<ul class="dropdown-menu navmenu-nav">
-					<li><button class="navBtn" onclick="doLight()">Light</button></li>
-					<li><button class="navBtn" onclick="doDark()">Dark</button></li>
-					<li class="divider"></li>
-					<li class="dropdown-header">Nav header</li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+	<ul class="nav navmenu-nav">
+		<li id="search">
+			<input id="searchField" autocomplete="off" type="text" placeholder="Search..."/>
+			<input id="searchSubmit" type="submit" value="" />
+			<table id="searchTable">
+				<tbody class="rowlink" data-link="row" id="livesearch">
+					<tr id="spinnerRow">
+						<td>
+							<img src="https://media1.tenor.com/images/ff2de05a118449ba4798d6a6e3147710/tenor.gif" alt="Searching..." class="spinner">
+							</img>
+						</td>
+					</tr>
+					<tr id="noResultsRow">
+						<td>
+							<div>No results found</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</li>
+	</ul>
+	<ul class="nav navmenu-nav">
+		<li><a href="/Browse.html">Browse</a></li>
+	</ul>
+	<ul class="nav navmenu-nav">
+		<li><a href="../about.html/">About</a></li>
+	</ul>
+	<ul class="nav navmenu-nav">
+		<li class="dropdown open">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testimonies <b class="caret"></b></a>
+			<ul class="dropdown-menu navmenu-nav" id="placeholderList">
+				<li class="dropdown-header">By Date</li>
+			</ul>
+		</li>
+	</ul>
+	<ul class="nav navmenu-nav">
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
+			<ul class="dropdown-menu navmenu-nav">
+				<li><button class="navBtn" onclick="doLight()">Light</button></li>
+				<li><button class="navBtn" onclick="doDark()">Dark</button></li>
+				<li class="divider"></li>
+				<li class="dropdown-header">Nav header</li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
 
-	<div class="canvas">
-		<div class="navbar navbar-default navbar-fixed-top">
-			<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
-	</div>
+<div class="navbar navbar-default navbar-fixed-top">
+	<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+</div>
