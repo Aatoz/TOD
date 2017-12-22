@@ -57,9 +57,42 @@
 	z-index: 1;
 }
 
-#livesearch > tbody > tr:hover > td
+#livesearch > tr:hover:not(#spinnerRow) > td
 {
-	background-color: blue
+	background-color: blue;
+	cursor: pointer;
+}
+
+#liveSearch > tr
+{
+	position: relative;
+	z-index: 1;
+}
+
+#searchTable {
+	display: grid;
+}
+
+#livesearch > tr > td > div > a:hover
+{
+	text-decoration: none !important;
+}
+
+#spinnerRow
+{
+	display: none;
+}
+
+.spinner {
+	display: content;
+	max-width: 36px;
+	max-height: 36px;
+}
+
+td img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
