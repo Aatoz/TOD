@@ -250,7 +250,7 @@
 			var g_bDoSearchLoop = true;
 			var g_bSearchFoundAnyFile = false;
 			var g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
-			var g_iCurrent = 0;
+			var g_iCurrent = -1;
 
 			if(window.attachEvent) {
 				window.attachEvent('onload', onLoad);
@@ -296,7 +296,7 @@
 						}
 					};
 
-					//  Decrement days that we load.
+					// Decrement days that we load.
 					var vDayOfMonth = vDate.getDate();
 					vDate.setDate(vDayOfMonth - 1);
 					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
@@ -394,63 +394,72 @@
 			}
 
 			var thread = null;
+			var g_hSearchThread = null;
 			$('#searchField').keyup(function() {
 				clearTimeout(thread);
-				var $this = $(this); thread = setTimeout(function(){doSearch($this.val())}, 1000);
+				var $this = $(this);
+
+				thread = setTimeout(function() {
+
+					g_hSearchThread = setInterval(function(){ doSearch($this.val()) }, 100);
+
+				}, 1000);
 			});
 
 			function doSearch(sSearch) {
-				if (sSearch.length == 0) {
-					document.getElementById("livesearch").innerHTML = "";
-					document.getElementById("livesearch").style.border = "0px";
+				g_iCurrent++;
+				console.log(g_iCurrent);
+				console.log(g_iDays);
+				console.log(g_bDoSearchLoop);
+
+				if (sSearch.length == 0 || !g_bDoSearchLoop || g_iCurrent >= g_iDays) {
+
+					console.log("Done searching.");
+					g_bDoSearchLoop = false;
+					clearInterval(g_hSearchThread);
+
+					if (document.getElementById("livesearch").innerHTML.length == 0) {
+						document.getElementById("livesearch").innerHTML = "No results found";
+						document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+					}
+
 					return;
 				}
 
+				// Decrement days that we load.
 				var vDate = new Date();
 				var vDayOfMonth = vDate.getDate();
-				vDate.setDate(vDayOfMonth + 1);
+				vDate.setDate(vDayOfMonth - g_iCurrent);
+				var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
+				console.log(sDateStr);
 
-				for (var iDay = g_iCurrent; iDay < g_iDays; g_iCurrent++, iDay++)
+				xhr("get", "https://rawgit.com/Aatoz/TOD/master/" + sDateStr + ".xml", function(data, vHTTP) {
+
+					//console.log("Data: " + data);
+					if (data.length === 0 || data.indexOf("404: Not Found") > -1)
+					{
+						g_bDoSearchLoop = !g_bSearchFoundAnyFile;
+						if (!g_bDoSearchLoop)
+							console.log("Done looping");
+						console.log("File not found, still looping.");
+					}
+					else
+					{
+						searchFile(sSearch, vHTTP);
+
+						console.log("Found file");
+						g_bSearchFoundAnyFile = true;
+					}
+				});
+
+				if (!g_bDoSearchLoop)
 				{
-					// Decrement days that we load.
-					vDayOfMonth = vDate.getDate();
-					vDate.setDate(vDayOfMonth - 1);
-					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
-					console.log(sDateStr);
-
-					xhr("get", "https://rawgit.com/Aatoz/TOD/master/" + sDateStr + ".xml", function(data, vHTTP) {
-
-						//console.log("Data: " + data);
-						if (data.length === 0 || data.indexOf("404: Not Found") > -1)
-						{
-							g_bDoSearchLoop = !g_bSearchFoundAnyFile;
-							if (!g_bDoSearchLoop)
-								console.log("Done looping");
-						}
-						else
-						{
-							searchFile(sSearch, vHTTP);
-
-							console.log("Found file");
-							g_bSearchFoundAnyFile = true;
-						}
-					});
-
-					if (!g_bDoSearchLoop)
-						break;
+					console.log("Stop looping...")
+					return;
 				}
 
-				console.log("Done");
 				g_bDoSearchLoop = true;
 				g_bSearchFoundAnyFile = false;
-
-				if (document.getElementById("livesearch").innerHTML.length == 0) {
-					document.getElementById("livesearch").innerHTML = "No results found";
-					document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-				}
-
-				if (g_iCurrent < g_iDays)
-					window.setTimeout(doSearch, 0);
 			}
 
 			function searchFile(sSearch, vHttp)
@@ -538,7 +547,7 @@ var xhr = function() {
                 callback( xhr.responseText, this );
             }
         };
-        xhr.open( method, url , false);
+        xhr.open( method, url );
         xhr.send();
     };
 }();

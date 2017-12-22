@@ -4,21 +4,16 @@
 	<meta name="friendlyDate" content="December 13th, 2017"></meta>
 </head>
 
-<div class="pos-date">
-	<div class="day">13</div>
-	<div class="month">December</div>
-	<div class="year">2017</div>
-</div>
-
-<h1 class="pos-title"> Healing of foot, heart, knee, and fibromyalgia </h1>
+<div id="date">December 13th, 2017</div>
+<h1 id="title">Inner Healing 4</h1>
 
 <div class="floatbox">
 	<div class="pos-content">
-		<div class="element element-textarea first last">
+		<div class="element element-textarea first last" id="theT">
 			<div>
 				<p>
 				</p>
-				<p>The Lord gave me a word of knowledge about someone having a heart problem and also a left foot problem. Afterwards, a lady came up to me who had both conditions. </p>
+				<p id="first_P">I had a word of knowledge for pain in right knee for past two years. A guy came up who had a problem for past two years because of a soccer injury. I prayed for him and he said he forgave the person who caused the injury and then he said he felt much better.</p>
 			</div>
 			<div>
 				<p>
@@ -35,4 +30,11 @@
 		</div>
 	</div>
 </div>
+
+<span class="w3-tag w3-small w3-margin-bottom">NORWAY</span>
+<span class="w3-tag w3-small w3-margin-bottom">DIY</span>
+<span class="w3-tag w3-small w3-margin-bottom">Ideas</span>
+<span class="w3-tag w3-small w3-margin-bottom">Baby</span>
+<span class="w3-tag w3-small w3-margin-bottom">Family</span>
+
 </body>
