@@ -1,660 +1,580 @@
+<!-- Paste your code HTML JS And CSS here -->
 <!DOCTYPE html>
 <head>
-	<title>Testimony of the Day</title>
-	<meta charset="UTF-8">
-	<meta http-equiv="Cache-control" content="public">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
-	<!-- Bootstrap core CSS -->
-	<link href="bootstrap.min.css" rel="stylesheet">
-	<link href="jasny-bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-	<link href="navmenu.css" rel="stylesheet">
-	<link href="generic.css" rel="stylesheet">
-	<link rel="stylesheet" href="theme-light.css" rel="stylesheet" id="theme-css"> 
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-white.css" id="w3-theme-css">
-
-	<!-- You can use open graph tags to customize link previews.
-	Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-	<meta property="og:url"           content="https://raw.githubusercontent.com/Aatoz/TOD/master/Testimonies.html" />
-	<meta property="og:type"          content="article" />
-	<meta property="og:title"         content="Testimony of the Day" />
-	<meta property="og:description"   content="Testimony of the Day" />
-	<meta property="og:image"         content="https://raw.githubusercontent.com/Aatoz/TOD/master/cover.jpg" />
-
-	<!-- Chrome, Firefox OS and Opera -->
-	<meta name="theme-color" content="#0000ff">
-	<!-- Windows Phone -->
-	<meta name="msapplication-navbutton-color" content="#4285f4">
-	<!-- iOS Safari -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
+  <title>Testimony of the Day</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <!-- Bootstrap core CSS -->
+  <link href="https://rawgit.com/Aatoz/TOD/master/bootstrap.min.css" rel="stylesheet">
+  <link href="https://rawgit.com/Aatoz/TOD/master/jasny-bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="navmenu.css" rel="stylesheet">
+  <link href="generic.css" rel="stylesheet">
+  <link rel="stylesheet" href="theme-light.css" rel="stylesheet" id="theme-css"> 
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-white.css" id="w3-theme-css">
+  <!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url"           content="https://raw.githubusercontent.com/Aatoz/TOD/master/Testimonies.html" />
+  <meta property="og:type"          content="article" />
+  <meta property="og:title"         content="Testimony of the Day" />
+  <meta property="og:description"   content="Testimony of the Day" />
+  <meta property="og:image"         content="https://raw.githubusercontent.com/Aatoz/TOD/master/cover.jpg" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#0000ff">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#4285f4">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
 </head>
 <body>
-
- <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-	<!-- ALWAYS KEEP NAV IN SYNC WITH navBarInsert.html-->
-	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
-	<a class="navmenu-brand" href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html">
-		<div class="home-btn"><div class="home-label">Home</div></div>
-	</a>
-		<ul class="nav navmenu-nav">
-			<li id="search">
-				<input id="searchField" autocomplete="off" type="text" placeholder="Search..."/>
-				<input id="searchSubmit" type="submit" value="" />
-				<table id="searchTable">
-					<tbody class="rowlink" data-link="row" id="livesearch">
-						<tr id="spinnerRow">
-							<td>
-								<img src="https://media1.tenor.com/images/ff2de05a118449ba4798d6a6e3147710/tenor.gif" alt="Searching..." class="spinner">
-								</img>
-							</td>
-						</tr>
-						<tr id="noResultsRow">
-							<td>
-								<div>No results found</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li><a href="/Browse.html">Browse</a></li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li><a href="../about.html/">About</a></li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li class="dropdown open">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testimonies <b class="caret"></b></a>
-				<ul class="dropdown-menu navmenu-nav" id="placeholderList">
-					<li class="dropdown-header">By Date</li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="nav navmenu-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
-				<ul class="dropdown-menu navmenu-nav">
-					<li><button class="navBtn" onclick="doLight()">Light</button></li>
-					<li><button class="navBtn" onclick="doDark()">Dark</button></li>
-					<li class="divider"></li>
-					<li class="dropdown-header">Nav header</li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-
-	<div class="navbar navbar-default navbar-fixed-top">
-		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	</div>
-
-	<!-- w3-content defines a container for fixed size centered content, 
-	and is wrapped around the whole page content, except for the footer in this example -->
-	<div style="max-width:1400px">
-
-		<!-- Header -->
-		<header class="w3-container w3-center w3-padding-32 w3-theme-l1"> 
-			<img src="cover.jpg" alt="Cross" style="width:100%;max-height:300px;">
-		</header>
-
-		<!-- Grid -->
-		<div class="w3-row w3-theme-l1">
-
-		<!-- Blog entries -->
-		<div class="w3-col l8 s12">
-			<!-- Blog entry -->
-			<div class="w3-card-4 w3-margin w3-theme">
-				<div class="w3-container">
-					<h3><b id="placeholder_Title1"></b></h3>
-					<h5><span class="w3-opacity" id="placeholder_Date1"></span></h5>
-				</div>
-
-				<div class="w3-container">
-					<p id="placeholder_P1"></p>
-					<div class="w3-row">
-						<div class="w3-col m8 s12">
-							<p><button id="readMore1" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
-						<!-- Your like button code -->
-						<div id="likeBtn1" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr>
-
-		<!-- Blog entry -->
-		<div class="w3-card-4 w3-margin w3-theme">
-			<div class="w3-container">
-				<h3><b id="placeholder_Title2"></b></h3>
-				<h5><span class="w3-opacity" id="placeholder_Date2"></span></h5>
-			</div>
-
-			<div class="w3-container">
-				<p id="placeholder_P2"></p>
-				<div class="w3-row">
-					<div class="w3-col m8 s12">
-						<p><button id="readMore2" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
-						<!-- Your like button code -->
-						<div id="likeBtn2" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr>
-
-		<!-- Blog entry -->
-		<div class="w3-card-4 w3-margin w3-theme">
-			<div class="w3-container">
-				<h3><b id="placeholder_Title3"></b></h3>
-				<h5><span class="w3-opacity" id="placeholder_Date3"></span></h5>
-			</div>
-
-			<div class="w3-container">
-				<p id="placeholder_P3"></p>
-				<div class="w3-row">
-					<div class="w3-col m8 s12">
-						<p><button id="readMore3" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
-						<!-- Your like button code -->
-						<div id="likeBtn3" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr>
-
-			<!-- END BLOG ENTRIES -->
-		</div>
-
-		<!-- Introduction menu -->
-		<div class="w3-col l4">
-			<!-- About Card -->
-			<div class="w3-card w3-margin w3-margin-top w3-theme">
-				<img src="http://globalmedicalco.com/photos/globalmedicalco/14/68769.jpg" style="width:100%">
-					<div class="w3-container header-block">
-						<h4><b>Purpose</b></h4>
-						<p>Power of the testimony. "Do again." Activates grace to do it again. <a href="/Statement.html">Read More...</a></p>
-					</div>
-			</div><hr>
-
-			<!-- Posts -->
-			<div class="w3-card w3-margin w3-theme">
-				<div class="w3-container w3-padding header-block">
-					<h4>Popular Posts (TODO: Have a ranking. Perhaps FB linked...)</h4>
-				</div>
-				<ul class="w3-ul w3-hoverable">
-					<li class="w3-padding-16">
-						<img class="w3-left w3-margin-right">
-						<div class="w3-left w3-margin-right postBadge">&nbsp;</div>
-						<span class="w3-large">Lorem</span><br>
-						<span>Sed mattis nunc</span>
-					</li>
-					<li class="w3-padding-16">
-						<img class="w3-left w3-margin-right">
-						<div class="w3-left w3-margin-right postBadge">&nbsp;</div>
-						<span class="w3-large">Ipsum</span><br>
-						<span>Praes tinci sed</span>
-					</li>
-					<li class="w3-padding-16">
-						<img class="w3-left w3-margin-right">
-						<div class="w3-left w3-margin-right postBadge">&nbsp;</div>
-						<span class="w3-large">Dorum</span><br>
-						<span>Ultricies congue</span>
-					</li>
-					<li class="w3-padding-16 w3-hide-medium w3-hide-small">
-						<img class="w3-left w3-margin-right">
-						<div class="w3-left w3-margin-right postBadge">&nbsp;</div>
-						<span class="w3-large">Mingsum</span><br>
-						<span>Lorem ipsum dipsum</span>
-					</li>
-				</ul>
-			</div>
-			<hr>
-
-			<!-- END Introduction Menu -->
-		</div>
-
-		<!-- END GRID -->
-		</div><br>
-
-		<!-- END w3-content -->
-	</div>
-
-	<!-- Footer -->
-	<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-		<button class="w3-button w3-disabled w3-padding-large w3-margin-bottom">&#171; Previous</button>
-		<button class="w3-button w3-padding-large w3-margin-bottom">Next &#187</button>
-		<p class="footer-subtext">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-	</footer>
-
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="jquery-1.10.2.min.js"></script>
-		<script src="bootstrap.min.js"></script>
-		<script src="jasny-bootstrap.min.js"></script>
-
-		<script>
-
-			var g_iDaysCount = 0;
-			var g_iDocCount = 0;
-			var g_bLoaded = false;
-
-			var g_bDoSearchLoop = true;
-			var g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
-			var g_iCurrent = -1;
-
-			if(window.attachEvent) {
-				window.attachEvent('onload', onLoad);
-			}
-			else {
-				if(window.onload) {
-						var curronload = window.onload;
-						var newonload = function(evt) {
-								curronload(evt);
-								onLoad(evt);
-						};
-						window.onload = newonload;
-				}
-				else {
-						window.onload = onLoad;
-				}
-			}
-
-			function onLoad()
-			{
-				var vDate = new Date();
-
-				// Load the last 5 days
-				for (var iCnt = 0; iCnt < 5; iCnt++)
-				{
-					var xhttp;
-					if (window.XMLHttpRequest) {
-						// code for modern browsers
-						xhttp = new XMLHttpRequest();
-						} else {
-						// code for IE6, IE5
-						xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-					}
-
-					xhttp.addEventListener("error", transferFailed);
-					xhttp.addEventListener("load", transferComplete);
-					//xhttp.responseType = 'document';
-					//xhttp.overrideMimeType('text/xml');
-
-					xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							parseXML(this);
-						}
-					};
-
-					// Decrement days that we load.
-					var vDayOfMonth = vDate.getDate();
-					vDate.setDate(vDayOfMonth - 1);
-					var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
-
-					xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
-					console.log(sDateStr);
-					xhttp.send();
-				}
-			}
-
-			function parseXML(vHttp) {
-				g_iDocCount++;
-
-				vXMLDoc = vHttp.responseXML;
-				console.log(vHttp.responseURL);
-				console.log(vXMLDoc);
-
-				var vHead = vXMLDoc.getElementsByTagName("meta");
-				var vDate = vHead[0].getAttribute('content');
-
-				var vListNode = document.createElement("LI");
-				var vLinkNode = document.createElement("A");
-				var vTextNode = document.createTextNode(vDate);
-				vLinkNode.setAttribute("href", vHttp.responseURL);
-				vLinkNode.appendChild(vTextNode);
-				vListNode.appendChild(vLinkNode);
-				document.getElementById("placeholderList").appendChild(vListNode);
-
-				// Load preview for 1st 3 days.
-				var vDate = new Date();
-
-				//  Decrement days that we load.
-				//var vDayOfMonth = vDate.getDate();
-				//vDate.setDate(vDayOfMonth - 1);
-
-				var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
-				if (g_iDocCount < 4)
-				{
-					var sDate = vXMLDoc.getElementById("date").childNodes[0].nodeValue;
-					var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
-					var sPreview = vXMLDoc.getElementById("first_P").childNodes[0].nodeValue;
-					var sURL = vHttp.responseURL;
-					sURL = sURL.replace("xml", "html");
-
-					console.log(g_iDocCount);
-					console.log(sDate);
-					console.log(sTitle);
-					console.log(sPreview);
-					console.log(sURL);
-
-					document.getElementById("placeholder_Date" + g_iDocCount).textContent = sDate;
-					document.getElementById("placeholder_Title" + g_iDocCount).textContent = sTitle;
-					document.getElementById("placeholder_P" + g_iDocCount).textContent = sPreview;
-					document.getElementById("readMore" + g_iDocCount).setAttribute('onclick', "location.href='" + sURL + "'");
-					document.getElementById("likeBtn" + g_iDocCount).setAttribute('data-href', sURL);
-
-					vXMLDoc = null;
-				}
-			}
-
-			function transferComplete(evt) {
-				//window.alert("The transfer is complete." + event.returnValue);
-
-				g_iDaysCount++;
-				g_bLoaded = g_iDaysCount === 5;
-				if (g_bLoaded)
-				{
-					// Now add the "More..." link.
-					var avNodes = [{"Divider":"Divider"}, {"sText":"More...", "href":"/Browse.html"}];
-					for (var iNode = 0; iNode < avNodes.length; ++iNode) {
-						var vData = avNodes[iNode];
-						var bCreateLink = (vData.href !== undefined);
-
-						var vListNode = document.createElement("LI");
-						var vLinkNode = null;
-						if (bCreateLink)
-							vLinkNode = document.createElement("A");
-						var vTextNode = document.createTextNode(vData.sText);
-
-						if (bCreateLink)
-						{
-							vLinkNode.setAttribute("href", vData.href);
-							vLinkNode.appendChild(vTextNode);
-							vListNode.appendChild(vLinkNode);
-						}
-						else vListNode.setAttribute("class", "divider");
-
-						document.getElementById("placeholderList").appendChild(vListNode);
-					}
-				}
-			}
-
-			function transferFailed(evt) {
-				window.alert("An error occurred while transferring the file.");
-			}
-
-			var thread = null;
-			var g_hSearchThread = null;
-			$('#searchField').keyup(function() {
-				clearTimeout(thread);
-				var $this = $(this);
-
-				hideNoResultsRow();
-				if ($this.val().length <= 0)
-				{
-					var vSpinnerRowNode = document.getElementById("spinnerRow");
-					var vNoResultsRowNode = document.getElementById("noResultsRow");
-					document.getElementById("livesearch").innerHTML = "";
-					document.getElementById("livesearch").appendChild(vSpinnerRowNode);
-					document.getElementById("livesearch").appendChild(vNoResultsRowNode);
-
-					resetGlobals();
-					hideSearchSpinner();
-
-					return;
-				}
-				else
-				{
-					g_bDoSearchLoop = true;
-					showSearchSpinner();
-				}
-
-				thread = setTimeout(function() {
-
-					g_hSearchThread = setInterval(function(){ doSearch($this.val()) }, 100);
-
-				}, 1000);
-			});
-
-			function resetGlobals() {
-				g_bDoSearchLoop = false;
-				g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
-				g_iCurrent = -1;
-			}
-
-			function showSearchSpinner() {
-				console.log("Show spinner");
-				console.log(document.getElementById("spinnerRow"));
-				document.getElementById("spinnerRow").style.display = "grid";
-				console.log(document.getElementById("spinnerRow").style.display);
-			}
-
-			function hideSearchSpinner() {
-				console.log("Hide spinner");
-				console.log(document.getElementById("spinnerRow"));
-				if (document.getElementById("spinnerRow").style.display !== "none")
-					document.getElementById("spinnerRow").style.display = "none";
-				console.log(document.getElementById("spinnerRow").style.display);
-			}
-
-			function showNoResultsRow() {
-				document.getElementById("noResultsRow").style.display = "grid";
-			}
-
-			function hideNoResultsRow() {
-				if (document.getElementById("noResultsRow").style.display !== "none")
-					document.getElementById("noResultsRow").style.display = "none";
-			}
-
-			function doSearch(sSearch) {
-				g_iCurrent++;
-				console.log(g_iCurrent);
-				console.log(g_iDays);
-				console.log(g_bDoSearchLoop);
-
-				if (sSearch.length == 0 || !g_bDoSearchLoop || g_iCurrent >= g_iDays) {
-
-					console.log("Done searching.");
-					clearInterval(g_hSearchThread);
-
-					resetGlobals();
-					hideSearchSpinner();
-
-					if (document.getElementById("livesearch").getElementsByTagName("tr").length < 3)
-						showNoResultsRow();
-
-					return;
-				}
-
-				// Decrement days that we load.
-				var vDate = new Date();
-				var vDayOfMonth = vDate.getDate();
-				vDate.setDate(vDayOfMonth - g_iCurrent);
-				var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
-				console.log(sDateStr);
-
-				xhr("get", "https://rawgit.com/Aatoz/TOD/master/" + sDateStr + ".xml", function(data, vHTTP) {
-
-					//console.log("Data: " + data);
-					if (data.length === 0 || data.indexOf("404: Not Found") > -1)
-					{
-						g_bDoSearchLoop = !searchFoundAnyFile();
-						if (!g_bDoSearchLoop)
-							console.log("Done looping");
-						console.log("File not found, still looping.");
-					}
-					else
-					{
-						searchFile(sSearch, vHTTP);
-
-						console.log("Found file");
-					}
-				});
-
-				if (!g_bDoSearchLoop)
-				{
-					console.log("Stop looping...")
-					return;
-				}
-
-				g_bDoSearchLoop = true;
-			}
-
-			function searchFoundAnyFile() {
-				return document.getElementById("livesearch").getElementsByTagName("tr").length > 2;
-			}
-
-			function searchFile(sSearch, vHttp)
-			{
-				vXMLDoc = vHttp.responseXML;
-				console.log("Search: " + sSearch);
-				//console.log(vXMLDoc);
-
-				var vTitleNode = vXMLDoc.getElementById("title");
-				if (vTitleNode == null)
-					return;
-
-				if (vTitleNode.childNodes.length == 0)
-					sTitle = vTitleNode.nodeValue;
-				else sTitle = vTitleNode.childNodes[0].nodeValue;
-
-				var avNodes = vXMLDoc.getElementsByClassName("w3-tag");
-				console.log(avNodes.length);
-				var avMatches = [];
-				for (var iNode = 0; iNode < avNodes.length; ++iNode) {
-					var vNode = avNodes[iNode];
-					if (vNode === null)
-						continue;
-					//console.log(vNode);
-
-					var sTag = "";
-					if (vNode.childNodes.length === 0 )
-						sTag = vNode.nodeValue;
-					else sTag = vNode.childNodes[0].nodeValue;
-					//console.log(sTag);
-
-					var myRegExp = new RegExp(sSearch, "i");
-					//console.log(myRegExp);
-					if (myRegExp.test(sTag) || myRegExp.test(sTitle)) {
-						avMatches.push(sTag);
-						break; // defer showing actual matches for speed. Display article instead.
-					}
-					else console.log("No match");
-				}
-
-				// Now output matches in div beneath search box.
-				// TODO: Truncate title at ... characters.
-
-				var vSpinnerNode = document.getElementById("searchSpinner");
-				var vSpinnerRowNode = document.getElementById("spinnerRow");
-				var vLiveSearchElem = document.getElementById("livesearch");
-
-				console.log(sTitle);
-				var sOutput = "";
-				for (var iMatch = 0; iMatch < avMatches.length; ++iMatch)
-				{
-					var sMatch = avMatches[iMatch];
-
-					var sElem = "<tr><td><div class='w3-left w3-margin-right postBadge'></div><a href='" + vHttp.responseURL.replace("xml", "html") + "'>" + sTitle + "</a></td></tr>";
-
-					var vTRNode = document.createElement("TR");
-					var vTDNode = document.createElement("TD");
-					var vDivBadgeNode = document.createElement("DIV");
-					var vDivNode = document.createElement("DIV");
-					var vLinkNode = document.createElement("A");
-					var vTextNode = document.createTextNode(sTitle);
-
-
-					vLinkNode.href = vHttp.responseURL.replace("xml", "html");
-					vDivBadgeNode.setAttribute("class", "postBadge");
-					vDivBadgeNode.setAttribute("style", "margin-right : 10px; float:left;");
-					vDivNode.setAttribute("style", "float:left");
-
-					vTRNode.appendChild(vTDNode);
-					vTDNode.appendChild(vDivBadgeNode);
-					vTDNode.appendChild(vDivNode);
-					vDivNode.appendChild(vLinkNode);
-					vLinkNode.appendChild(vTextNode);
-
-					console.log(sElem);
-					//sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
-
-					vLiveSearchElem.insertBefore(vTRNode, vSpinnerRowNode);
-				}
-				console.log(sOutput);
-				sOutput += "</tbody>"
-
-				var bSearchFoundAnyFile = false;
-				var sResults = vLiveSearchElem.innerHTML;
-				bSearchFoundAnyFile = sResults.length > 0 && sResults !== "No results found";
-
-				//vNode.innerHTML = sOutput;
-				//if (bSearchFoundAnyFile)
-					//vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
-					//vLiveSearchElem.innerHTML += sOutput;
-				//else vLiveSearchElem.innerHTML = sOutput;
-				//else vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
-
-				//vLiveSearchElem.innerHTML = sOutput;
-
-				// Resize to match search box.
-				var vTable = document.getElementById("searchTable");
-				vTable.style.border = "1px solid #A5ACB2";
-				vTable.style.width = document.getElementById("searchField").offsetWidth + "px";
-				var rect = document.getElementById("searchField").getBoundingClientRect();
-				vTable.style.left = rect.left + "px";
-			}
-
-			function doLight()
-			{
-				var vW3ThemeNode = document.getElementById("w3-theme-css");
-				var vThemeNode = document.getElementById("theme-css");
-				vW3ThemeNode.href = "";
-				vThemeNode.href = "theme-light.css";
-			}
-
-			function doDark()
-			{
-				var vW3ThemeNode = document.getElementById("w3-theme-css");
-				var vThemeNode = document.getElementById("theme-css");
-				vW3ThemeNode.href = "https://www.w3schools.com/lib/w3-theme-black.css";
-				vThemeNode.href = "theme-dark.css";
-			}
-
-
-			var xhr = function() {
-				var xhr = new XMLHttpRequest();
-				return function( method, url, callback ) {
-					xhr.onreadystatechange = function() {
-						if ( xhr.readyState == 4 ) {
-							callback( xhr.responseText, this );
-						}
-					};
-					xhr.open( method, url );
-					xhr.send();
-				};
-			}();
-		</script>
-
-	</body>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+           (document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- ALWAYS KEEP NAV IN SYNC WITH navBarInsert.html-->
+  <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm w3-theme-l1">
+    <a class="navmenu-brand" href="https://rawgit.com/Aatoz/TOD/master/Testimonies.html">
+      <div class="home-btn"><div class="home-label">Home</div></div>
+    </a>
+    <ul class="nav navmenu-nav">
+      <li id="search">
+        <input id="searchField" autocomplete="off" type="text" placeholder="Search..."/>
+        <input id="searchSubmit" type="submit" value="" />
+        <table id="searchTable">
+          <tbody class="rowlink" data-link="row" id="livesearch">
+            <tr id="spinnerRow">
+              <td>
+                <img src="https://media1.tenor.com/images/ff2de05a118449ba4798d6a6e3147710/tenor.gif" alt="Searching..." class="spinner">
+          </img>
+          </td>
+      </tr>
+    <tr id="noResultsRow">
+      <td>
+        <div>No results found</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</li>
+</ul>
+<ul class="nav navmenu-nav">
+  <li><a href="/Browse.html">Browse</a></li>
+</ul>
+<ul class="nav navmenu-nav">
+  <li><a href="../about.html/">About</a></li>
+</ul>
+<ul class="nav navmenu-nav">
+  <li class="dropdown open">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testimonies <b class="caret"></b></a>
+    <ul class="dropdown-menu navmenu-nav" id="placeholderList">
+      <li class="dropdown-header">By Date</li>
+    </ul>
+  </li>
+</ul>
+<ul class="nav navmenu-nav">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
+    <ul class="dropdown-menu navmenu-nav">
+      <li><button class="navBtn" onclick="doLight()">Light</button></li>
+      <li><button class="navBtn" onclick="doDark()">Dark</button></li>
+      <li class="divider"></li>
+      <li class="dropdown-header">Nav header</li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div style="max-width:1400px">
+  <!-- Header -->
+  <header class="w3-container w3-center w3-padding-32 w3-theme-l1"> 
+    <img src="cover.jpg" alt="Cross" style="width:100%;max-height:300px;">
+  </header>
+  <!-- Grid -->
+  <div class="w3-row w3-theme-l1">
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+      <!-- Blog entry -->
+      <div class="w3-card-4 w3-margin w3-theme">
+        <div class="w3-container">
+          <h3><b id="placeholder_Title1"></b></h3>
+          <h5><span class="w3-opacity" id="placeholder_Date1"></span></h5>
+        </div>
+        <div class="w3-container">
+          <p id="placeholder_P1"></p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button id="readMore1" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
+              <!-- Your like button code -->
+              <div id="likeBtn1" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Blog entry -->
+      <div class="w3-card-4 w3-margin w3-theme">
+        <div class="w3-container">
+          <h3><b id="placeholder_Title2"></b></h3>
+          <h5><span class="w3-opacity" id="placeholder_Date2"></span></h5>
+        </div>
+        <div class="w3-container">
+          <p id="placeholder_P2"></p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button id="readMore2" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
+              <!-- Your like button code -->
+              <div id="likeBtn2" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Blog entry -->
+      <div class="w3-card-4 w3-margin w3-theme">
+        <div class="w3-container">
+          <h3><b id="placeholder_Title3"></b></h3>
+          <h5><span class="w3-opacity" id="placeholder_Date3"></span></h5>
+        </div>
+        <div class="w3-container">
+          <p id="placeholder_P3"></p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button id="readMore3" class="w3-button w3-padding-large w3-border" onclick="";><b>READ MORE &#187</b></button></p>
+              <!-- Your like button code -->
+              <div id="likeBtn3" class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" data-colorscheme="dark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- END BLOG ENTRIES -->
+    </div>
+    <!-- Introduction menu -->
+    <div class="w3-col l4">
+      <!-- About Card -->
+      <div class="w3-card w3-margin w3-margin-top w3-theme">
+        <img src="http://globalmedicalco.com/photos/globalmedicalco/14/68769.jpg" style="width:100%">
+        <div class="w3-container header-block">
+          <h4><b>Purpose</b></h4>
+          <p>Power of the testimony. "Do again." Activates grace to do it again. <a href="/Statement.html">Read More...</a></p>
+        </div>
+      </div><hr>
+      <!-- Posts -->
+      <div class="w3-card w3-margin w3-theme">
+        <div class="w3-container w3-padding header-block">
+          <h4>Popular Posts (TODO: Have a ranking. Perhaps FB linked...)</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img class="w3-left w3-margin-right">
+            <div class="w3-left w3-margin-right postBadge">&nbsp;</div>
+            <span class="w3-large">Lorem</span><br>
+            <span>Sed mattis nunc</span>
+          </li>
+          <li class="w3-padding-16">
+            <img class="w3-left w3-margin-right">
+            <div class="w3-left w3-margin-right postBadge">&nbsp;</div>
+            <span class="w3-large">Ipsum</span><br>
+            <span>Praes tinci sed</span>
+          </li>
+          <li class="w3-padding-16">
+            <img class="w3-left w3-margin-right">
+            <div class="w3-left w3-margin-right postBadge">&nbsp;</div>
+            <span class="w3-large">Dorum</span><br>
+            <span>Ultricies congue</span>
+          </li>
+          <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+            <img class="w3-left w3-margin-right">
+            <div class="w3-left w3-margin-right postBadge">&nbsp;</div>
+            <span class="w3-large">Mingsum</span><br>
+            <span>Lorem ipsum dipsum</span>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <!-- END Introduction Menu -->
+    </div>
+    <!-- END GRID -->
+  </div><br>
+  <!-- END w3-content -->
+</div>
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-disabled w3-padding-large w3-margin-bottom">&#171; Previous</button>
+  <button class="w3-button w3-padding-large w3-margin-bottom">Next &#187</button>
+  <p class="footer-subtext">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://rawgit.com/Aatoz/TOD/master/jquery-1.10.2.min.js"></script>
+<script src="https://rawgit.com/Aatoz/TOD/master/bootstrap.min.js"></script>
+<script src="https://rawgit.com/Aatoz/TOD/master/jasny-bootstrap.min.js"></script>
+<script>
+  var g_iDaysCount = 0;
+  var g_iDocCount = 0;
+  var g_bLoaded = false;
+  var g_bDoSearchLoop = true;
+  var g_iDays = 15;
+  // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
+  var g_iCurrent = -1;
+  if(window.attachEvent) {
+    window.attachEvent('onload', onLoad);
+  }
+  else {
+    if(window.onload) {
+      var curronload = window.onload;
+      var newonload = function(evt) {
+        curronload(evt);
+        onLoad(evt);
+      };
+      window.onload = newonload;
+    }
+    else {
+      window.onload = onLoad;
+    }
+  }
+  function onLoad()
+  {
+    var vDate = new Date();
+    // Load the last 5 days
+    for (var iCnt = 0; iCnt < g_iDays; iCnt++)
+    {
+      if (g_iDocCount === 5)
+        return;
+      var xhttp;
+      if (window.XMLHttpRequest) {
+        // code for modern browsers
+        xhttp = new XMLHttpRequest();
+      }
+      else {
+        // code for IE6, IE5
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xhttp.addEventListener("error", transferFailed);
+      xhttp.addEventListener("load", transferComplete);
+      //xhttp.responseType = 'document';
+      //xhttp.overrideMimeType('text/xml');
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          parseXML(this);
+        }
+      };
+      // Decrement days that we load.
+      var vDayOfMonth = vDate.getDate();
+      vDate.setDate(vDayOfMonth - 1);
+      var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
+      xhttp.open('GET', 'https://rawgit.com/Aatoz/TOD/master/' + sDateStr + '.xml', true);
+      console.log(sDateStr);
+      xhttp.send();
+    }
+  }
+  function parseXML(vHttp) {
+    g_iDocCount++;
+    vXMLDoc = vHttp.responseXML;
+    console.log(vHttp.responseURL);
+    console.log(vXMLDoc);
+    var vHead = vXMLDoc.getElementsByTagName("meta");
+    var vDate = vHead[0].getAttribute('content');
+    var vListNode = document.createElement("LI");
+    var vLinkNode = document.createElement("A");
+    var vTextNode = document.createTextNode(vDate);
+    vLinkNode.setAttribute("href", vHttp.responseURL);
+    vLinkNode.appendChild(vTextNode);
+    vListNode.appendChild(vLinkNode);
+    document.getElementById("placeholderList").appendChild(vListNode);
+    // Load preview for 1st 3 days.
+    var vDate = new Date();
+    //  Decrement days that we load.
+    //var vDayOfMonth = vDate.getDate();
+    //vDate.setDate(vDayOfMonth - 1);
+    var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
+    if (g_iDocCount < 4)
+    {
+      var sDate = vXMLDoc.getElementById("date").childNodes[0].nodeValue;
+      var sTitle = vXMLDoc.getElementById("title").childNodes[0].nodeValue;
+      var sPreview = vXMLDoc.getElementById("first_P").childNodes[0].nodeValue;
+      var sURL = vHttp.responseURL;
+      sURL = sURL.replace("xml", "html");
+      console.log(g_iDocCount);
+      console.log(sDate);
+      console.log(sTitle);
+      console.log(sPreview);
+      console.log(sURL);
+      document.getElementById("placeholder_Date" + g_iDocCount).textContent = sDate;
+      document.getElementById("placeholder_Title" + g_iDocCount).textContent = sTitle;
+      document.getElementById("placeholder_P" + g_iDocCount).textContent = sPreview;
+      document.getElementById("readMore" + g_iDocCount).setAttribute('onclick', "location.href='" + sURL + "'");
+      document.getElementById("likeBtn" + g_iDocCount).setAttribute('data-href', sURL);
+      vXMLDoc = null;
+    }
+  }
+  function transferComplete(evt) {
+    //window.alert("The transfer is complete." + event.returnValue);
+    g_iDaysCount++;
+    g_bLoaded = g_iDaysCount === 5;
+    if (g_bLoaded)
+    {
+      // Now add the "More..." link.
+      var avNodes = [{
+        "Divider":"Divider"}
+                     , {
+                       "sText":"More...", "href":"/Browse.html"}
+                    ];
+      for (var iNode = 0; iNode < avNodes.length; ++iNode) {
+        var vData = avNodes[iNode];
+        var bCreateLink = (vData.href !== undefined);
+        var vListNode = document.createElement("LI");
+        var vLinkNode = null;
+        if (bCreateLink)
+          vLinkNode = document.createElement("A");
+        var vTextNode = document.createTextNode(vData.sText);
+        if (bCreateLink)
+        {
+          vLinkNode.setAttribute("href", vData.href);
+          vLinkNode.appendChild(vTextNode);
+          vListNode.appendChild(vLinkNode);
+        }
+        else vListNode.setAttribute("class", "divider");
+        document.getElementById("placeholderList").appendChild(vListNode);
+      }
+    }
+  }
+  function transferFailed(evt) {
+    window.alert("An error occurred while transferring the file.");
+  }
+  var thread = null;
+  var g_hSearchThread = null;
+  $('#searchField').keyup(function() {
+    clearTimeout(thread);
+    var $this = $(this);
+    hideNoResultsRow();
+    if ($this.val().length <= 0)
+    {
+      var vSpinnerRowNode = document.getElementById("spinnerRow");
+      var vNoResultsRowNode = document.getElementById("noResultsRow");
+      document.getElementById("livesearch").innerHTML = "";
+      document.getElementById("livesearch").appendChild(vSpinnerRowNode);
+      document.getElementById("livesearch").appendChild(vNoResultsRowNode);
+      resetGlobals();
+      hideSearchSpinner();
+      return;
+    }
+    else
+    {
+      g_bDoSearchLoop = true;
+      showSearchSpinner();
+    }
+    thread = setTimeout(function() {
+      g_hSearchThread = setInterval(function(){
+        doSearch($this.val()) }
+                                    , 100);
+    }
+                        , 1000);
+  }
+                         );
+  function resetGlobals() {
+    g_bDoSearchLoop = false;
+    g_iDays = 15;
+    // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
+    g_iCurrent = -1;
+  }
+  function showSearchSpinner() {
+    console.log("Show spinner");
+    console.log(document.getElementById("spinnerRow"));
+    document.getElementById("spinnerRow").style.display = "grid";
+    console.log(document.getElementById("spinnerRow").style.display);
+  }
+  function hideSearchSpinner() {
+    console.log("Hide spinner");
+    console.log(document.getElementById("spinnerRow"));
+    if (document.getElementById("spinnerRow").style.display !== "none")
+      document.getElementById("spinnerRow").style.display = "none";
+    console.log(document.getElementById("spinnerRow").style.display);
+  }
+  function showNoResultsRow() {
+    document.getElementById("noResultsRow").style.display = "grid";
+  }
+  function hideNoResultsRow() {
+    if (document.getElementById("noResultsRow").style.display !== "none")
+      document.getElementById("noResultsRow").style.display = "none";
+  }
+  function doSearch(sSearch) {
+    g_iCurrent++;
+    console.log(g_iCurrent);
+    console.log(g_iDays);
+    console.log(g_bDoSearchLoop);
+    if (sSearch.length == 0 || !g_bDoSearchLoop || g_iCurrent >= g_iDays) {
+      console.log("Done searching.");
+      clearInterval(g_hSearchThread);
+      resetGlobals();
+      hideSearchSpinner();
+      if (document.getElementById("livesearch").getElementsByTagName("tr").length < 3)
+        showNoResultsRow();
+      return;
+    }
+    // Decrement days that we load.
+    var vDate = new Date();
+    var vDayOfMonth = vDate.getDate();
+    vDate.setDate(vDayOfMonth - g_iCurrent);
+    var sDateStr = (vDate.getMonth() + 1) + '-' + vDate.getDate() + '-' +  vDate.getFullYear();
+    console.log(sDateStr);
+    xhr("get", "https://rawgit.com/Aatoz/TOD/master/" + sDateStr + ".xml", function(data, vHTTP) {
+      //console.log("Data: " + data);
+      if (data.length === 0 || data.indexOf("404: Not Found") > -1)
+      {
+        g_bDoSearchLoop = !searchFoundAnyFile();
+        if (!g_bDoSearchLoop)
+          console.log("Done looping");
+        console.log("File not found, still looping.");
+      }
+      else
+      {
+        searchFile(sSearch, vHTTP);
+        console.log("Found file");
+      }
+    }
+       );
+    if (!g_bDoSearchLoop)
+    {
+      console.log("Stop looping...")
+      return;
+    }
+    g_bDoSearchLoop = true;
+  }
+  function searchFoundAnyFile() {
+    return document.getElementById("livesearch").getElementsByTagName("tr").length > 2;
+  }
+  function searchFile(sSearch, vHttp)
+  {
+    vXMLDoc = vHttp.responseXML;
+    console.log("Search: " + sSearch);
+    //console.log(vXMLDoc);
+    var vTitleNode = vXMLDoc.getElementById("title");
+    if (vTitleNode == null)
+      return;
+    if (vTitleNode.childNodes.length == 0)
+      sTitle = vTitleNode.nodeValue;
+    else sTitle = vTitleNode.childNodes[0].nodeValue;
+    var avNodes = vXMLDoc.getElementsByClassName("w3-tag");
+    console.log(avNodes.length);
+    var avMatches = [];
+    for (var iNode = 0; iNode < avNodes.length; ++iNode) {
+      var vNode = avNodes[iNode];
+      if (vNode === null)
+        continue;
+      //console.log(vNode);
+      var sTag = "";
+      if (vNode.childNodes.length === 0 )
+        sTag = vNode.nodeValue;
+      else sTag = vNode.childNodes[0].nodeValue;
+      //console.log(sTag);
+      var myRegExp = new RegExp(sSearch, "i");
+      //console.log(myRegExp);
+      if (myRegExp.test(sTag) || myRegExp.test(sTitle)) {
+        avMatches.push(sTag);
+        break;
+        // defer showing actual matches for speed. Display article instead.
+      }
+      else console.log("No match");
+    }
+    // Now output matches in div beneath search box.
+    // TODO: Truncate title at ... characters.
+    var vSpinnerNode = document.getElementById("searchSpinner");
+    var vSpinnerRowNode = document.getElementById("spinnerRow");
+    var vLiveSearchElem = document.getElementById("livesearch");
+    console.log(sTitle);
+    var sOutput = "";
+    for (var iMatch = 0; iMatch < avMatches.length; ++iMatch)
+    {
+      var sMatch = avMatches[iMatch];
+      var sElem = "<tr><td><div class='w3-left w3-margin-right postBadge'></div><a href='" + vHttp.responseURL.replace("xml", "html") + "'>" + sTitle + "</a></td></tr>";
+      var vTRNode = document.createElement("TR");
+      var vTDNode = document.createElement("TD");
+      var vDivBadgeNode = document.createElement("DIV");
+      var vDivNode = document.createElement("DIV");
+      var vLinkNode = document.createElement("A");
+      var vTextNode = document.createTextNode(sTitle);
+      vLinkNode.href = vHttp.responseURL.replace("xml", "html");
+      vDivBadgeNode.setAttribute("class", "postBadge");
+      vDivBadgeNode.setAttribute("style", "margin-right : 10px; float:left;");
+      vDivNode.setAttribute("style", "float:left");
+      vTRNode.appendChild(vTDNode);
+      vTDNode.appendChild(vDivBadgeNode);
+      vTDNode.appendChild(vDivNode);
+      vDivNode.appendChild(vLinkNode);
+      vLinkNode.appendChild(vTextNode);
+      console.log(sElem);
+      //sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
+      vLiveSearchElem.insertBefore(vTRNode, vSpinnerRowNode);
+    }
+    console.log(sOutput);
+    sOutput += "</tbody>"
+    var bSearchFoundAnyFile = false;
+    var sResults = vLiveSearchElem.innerHTML;
+    bSearchFoundAnyFile = sResults.length > 0 && sResults !== "No results found";
+    //vNode.innerHTML = sOutput;
+    //if (bSearchFoundAnyFile)
+    //vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
+    //vLiveSearchElem.innerHTML += sOutput;
+    //else vLiveSearchElem.innerHTML = sOutput;
+    //else vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
+    //vLiveSearchElem.innerHTML = sOutput;
+    // Resize to match search box.
+    var vTable = document.getElementById("searchTable");
+    vTable.style.border = "1px solid #A5ACB2";
+    vTable.style.width = document.getElementById("searchField").offsetWidth + "px";
+    var rect = document.getElementById("searchField").getBoundingClientRect();
+    vTable.style.left = rect.left + "px";
+  }
+  function doLight()
+  {
+    var vW3ThemeNode = document.getElementById("w3-theme-css");
+    var vThemeNode = document.getElementById("theme-css");
+    vW3ThemeNode.href = "";
+    vThemeNode.href = "theme-light.css";
+  }
+  function doDark()
+  {
+    var vW3ThemeNode = document.getElementById("w3-theme-css");
+    var vThemeNode = document.getElementById("theme-css");
+    vW3ThemeNode.href = "https://www.w3schools.com/lib/w3-theme-black.css";
+    vThemeNode.href = "theme-dark.css";
+  }
+  var xhr = function() {
+    var xhr = new XMLHttpRequest();
+    return function( method, url, callback ) {
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState == 4 ) {
+          callback( xhr.responseText, this );
+        }
+      };
+      xhr.open( method, url );
+      xhr.send();
+    };
+  }
+  ();
+</script>
+</body>
 </html>
+<!-- Tool by http://unminify-tool.blogspot.com/ -->
