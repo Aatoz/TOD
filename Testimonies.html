@@ -421,15 +421,26 @@
 
 				console.log("Key code: " + iCode);
 				console.log("Search term: " + $this.val() + "   Last val: " + g_sLastVal);
+
 				// Filter certain keys.
-				if (($this.val() === g_sLastVal && (iCode == 8 || iCode == 46 || !g_bDoSearchLoop)) ||
+				if (($this.val() === g_sLastVal && !isFocusKeyCode(iCode) && iCode != 13 &&
+						(iCode == 8 || iCode == 46 || !g_bDoSearchLoop)) ||
 					iCode == 16 || iCode == 17 || iCode == 18 || iCode == 27 ||
-					iCode == 33 || iCode == 34 || iCode == 35 || iCode == 36 ||
-					iCode == 91 || iCode == 93 || iCode == 9  ||
+					iCode == 35 || iCode == 36 || iCode == 91 || iCode == 93 ||
+					iCode == 9  ||
 					// F1-F12 keys.
 					(iCode > 112 && iCode < 124))
 				{
 					console.log("Key filtered.");
+					return;
+				}
+
+				if (isFocusKeyCode(iCode)) {
+					searchFocus(iCode);
+					return;
+				}
+				if (iCode == 13) { // Enter
+					submitSearch();
 					return;
 				}
 
@@ -461,6 +472,17 @@
 				}, 1000);
 			});
 
+			function isFocusKeyCode(iCode) {
+				return iCode == 33 || iCode == 34 || iCode == 38 || iCode == 40;
+			}
+			
+			function submitSearch() {
+				document.getElementsByClassName("activeSearchResult")[0].childNodes[0].click();
+				console.log("Clicked");
+
+				resetGlobals();
+			}
+
 			function resetGlobals() {
 				g_bDoSearchLoop = false;
 				g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
@@ -490,6 +512,44 @@
 			function hideNoResultsRow() {
 				if (document.getElementById("noResultsRow").style.display !== "none")
 					document.getElementById("noResultsRow").style.display = "none";
+			}
+
+			function searchFocus(iCode) {
+				var vResults = document.getElementById("livesearch").getElementsByTagName("tr");
+				console.log(vResults);
+
+				var iTotalResults = vResults.length - 2; // static, hidden rows.
+				var vActiveResult = document.getElementsByClassName("activeSearchResult")[0];
+				console.log(vActiveResult);
+
+				var bMoveUp = iCode == 38;
+				var bMoveDown = iCode == 40;
+				var bPageUp = iCode == 33;
+				var bPageDown = iCode == 44;
+
+				var iResultNdx = vActiveResult.rowIndex;
+				var iNewNdx = iResultNdx + 1;
+				if (bMoveUp)
+					iNewNdx = iResultNdx - 1;
+
+				console.log(iResultNdx);
+				console.log(iNewNdx);
+				console.log(iTotalResults);
+				console.log(bMoveUp);
+				console.log(bMoveDown);
+
+				if (iNewNdx >= iTotalResults || iNewNdx < 0) {
+					console.log("returned");
+					return;
+				}
+
+				vActiveResult.removeAttribute("class");
+				vActiveResult.removeAttribute("rowIndex");
+
+				vActiveResult = vResults[iNewNdx];
+				vActiveResult.setAttribute("class", "activeSearchResult");
+				vActiveResult.setAttribute("rowIndex", iNewNdx);
+				console.log("New result: " + vActiveResult);
 			}
 
 			function doSearch(sSearch) {
@@ -610,6 +670,11 @@
 					var vTextNode = document.createTextNode(sTitle);
 
 
+					// Set focus for first row...
+					if (document.getElementById("livesearch").getElementsByTagName("tr").length == 2) {
+						vTRNode.setAttribute("class", "activeSearchResult");
+						vTRNode.setAttribute("rowIndex", "1");
+					}
 					vLinkNode.href = vHttp.responseURL.replace("xml", "html");
 					vDivBadgeNode.setAttribute("class", "postBadge");
 					vDivBadgeNode.setAttribute("style", "margin-right : 10px; float:left;");

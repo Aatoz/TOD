@@ -72,11 +72,20 @@
 
 #searchTable {
 	display: grid;
+	border-collapse: separate !important;
 }
 
 #livesearch > tr > td > div > a:hover
 {
 	text-decoration: none !important;
+}
+
+.activeSearchResult {
+	background-color: #59F !important;
+}
+
+.activeSearchResult > td {
+	border: black groove 2px !important; //#52aaf5;
 }
 
 #spinnerRow,

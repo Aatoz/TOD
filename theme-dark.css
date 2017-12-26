@@ -163,3 +163,11 @@ button[class=t_small]:disabled
 	-webkit-filter: invert(95%) brightness(150%) contrast(105%) saturate(1); /* Safari 6.0 - 9.0 */
 	filter: invert(95%) brightness(150%) contrast(105%) saturate(1);
 }
+
+.activeSearchResult {
+	background-color: var(--highlight-color) !important;
+}
+
+.activeSearchResult > td {
+	border: black groove 2px !important; //#52aaf5;
+}
