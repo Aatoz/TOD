@@ -261,6 +261,7 @@
 			var g_bDoSearchLoop = true;
 			var g_iDays = 15; // try as far back as 15 years worth of data -- that'll hold for awhile! 5475
 			var g_iCurrent = -1;
+			var g_sLastVal = "";
 
 			if(window.attachEvent) {
 				window.attachEvent('onload', onLoad);
@@ -379,7 +380,7 @@
 				//window.alert("The transfer is complete." + event.returnValue);
 
 				g_iDaysCount++;
-        g_bLoaded = document.getElementById("placeholderList").childNodes.length == 8;
+				g_bLoaded = document.getElementById("placeholderList").childNodes.length == 8;
 				if (g_bLoaded)
 				{
 					// Now add the "More..." link.
@@ -413,9 +414,24 @@
 
 			var thread = null;
 			var g_hSearchThread = null;
-			$('#searchField').keyup(function() {
+			$('#searchField').keyup(function(vEvent) {
 				clearTimeout(thread);
 				var $this = $(this);
+				var iCode = vEvent.keyCode;
+
+				console.log("Key code: " + iCode);
+				console.log("Search term: " + $this.val() + "   Last val: " + g_sLastVal);
+				// Filter certain keys.
+				if (($this.val() === g_sLastVal && (iCode == 8 || iCode == 46 || !g_bDoSearchLoop)) ||
+					iCode == 16 || iCode == 17 || iCode == 18 || iCode == 27 ||
+					iCode == 33 || iCode == 34 || iCode == 35 || iCode == 36 ||
+					iCode == 91 || iCode == 93 || iCode == 9  ||
+					// F1-F12 keys.
+					(iCode > 112 && iCode < 124))
+				{
+					console.log("Key filtered.");
+					return;
+				}
 
 				hideNoResultsRow();
 				if ($this.val().length <= 0)
@@ -433,6 +449,7 @@
 				}
 				else
 				{
+					g_sLastVal = $this.val();
 					g_bDoSearchLoop = true;
 					showSearchSpinner();
 				}
@@ -448,6 +465,7 @@
 				g_bDoSearchLoop = false;
 				g_iDays = 15; // try as fr back as 15 years worth of data -- that'll hold for awhile! 5475
 				g_iCurrent = -1;
+				//g_sLastVal = "";
 			}
 
 			function showSearchSpinner() {
