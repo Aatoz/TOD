@@ -50,15 +50,15 @@
 	border:none;
 }
 
-#livesearch
+#liveSearch
 {
 	//position: absolute;
 	position: relative;
 	z-index: 1;
 }
 
-#livesearch > tr:hover:not(#spinnerRow) > td.
-#livesearch > tr:hover:not(#noResultsRow) > td
+#liveSearch > tr:hover:not(#spinnerRow) > td.
+#liveSearch > tr:hover:not(#noResultsRow) > td
 {
 	background-color: blue;
 	cursor: pointer;
@@ -76,7 +76,7 @@
 	border-collapse: separate !important;
 }
 
-#livesearch > tr > td > div > a:hover
+#liveSearch > tr > td > div > a:hover
 {
 	text-decoration: none !important;
 }

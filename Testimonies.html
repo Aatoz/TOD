@@ -55,7 +55,7 @@
 				<input id="searchField" autocomplete="off" type="text" placeholder="Search..."/>
 				<input id="searchSubmit" type="submit" value="" />
 				<table id="searchTable">
-					<tbody class="rowlink" data-link="row" id="livesearch">
+					<tbody class="rowlink" data-link="row" id="liveSearch">
 						<tr id="spinnerRow">
 							<td>
 								<img src="https://media1.tenor.com/images/ff2de05a118449ba4798d6a6e3147710/tenor.gif" alt="Searching..." class="spinner">
@@ -451,9 +451,9 @@
 				{
 					var vSpinnerRowNode = document.getElementById("spinnerRow");
 					var vNoResultsRowNode = document.getElementById("noResultsRow");
-					document.getElementById("livesearch").innerHTML = "";
-					document.getElementById("livesearch").appendChild(vSpinnerRowNode);
-					document.getElementById("livesearch").appendChild(vNoResultsRowNode);
+					document.getElementById("liveSearch").innerHTML = "";
+					document.getElementById("liveSearch").appendChild(vSpinnerRowNode);
+					document.getElementById("liveSearch").appendChild(vNoResultsRowNode);
 
 					resetGlobals();
 					hideSearchSpinner();
@@ -535,7 +535,7 @@
 			}
 
 			function searchFocus(iCode) {
-				var vResults = document.getElementById("livesearch").getElementsByTagName("tr");
+				var vResults = document.getElementById("liveSearch").getElementsByTagName("tr");
 				console.log(vResults);
 
 				var iTotalResults = vResults.length - 2; // static, hidden rows.
@@ -590,7 +590,7 @@
 					resetGlobals();
 					hideSearchSpinner();
 
-					if (document.getElementById("livesearch").getElementsByTagName("tr").length < 3)
+					if (document.getElementById("liveSearch").getElementsByTagName("tr").length < 3)
 						showNoResultsRow();
 
 					return;
@@ -630,7 +630,7 @@
 			}
 
 			function searchFoundAnyFile() {
-				return document.getElementById("livesearch").getElementsByTagName("tr").length > 2;
+				return document.getElementById("liveSearch").getElementsByTagName("tr").length > 2;
 			}
 
 			function searchFile(sSearch, vHttp)
@@ -676,7 +676,7 @@
 
 				var vSpinnerNode = document.getElementById("searchSpinner");
 				var vSpinnerRowNode = document.getElementById("spinnerRow");
-				var vLiveSearchElem = document.getElementById("livesearch");
+				var vLiveSearchElem = document.getElementById("liveSearch");
 
 				console.log(sTitle);
 				var sOutput = "";
@@ -695,10 +695,12 @@
 
 
 					// Set focus for first row...
-					if (document.getElementById("livesearch").getElementsByTagName("tr").length == 2) {
-						vTRNode.setAttribute("class", "activeSearchResult");
+					if (document.getElementById("liveSearch").getElementsByTagName("tr").length == 2) {
+						vTRNode.setAttribute("class", "searchResult activeSearchResult");
 						vTRNode.setAttribute("rowIndex", "1");
 					}
+					else vTRNode.setAttribute("class", "searchResult");
+
 					vLinkNode.href = vHttp.responseURL.replace("xml", "html");
 					vDivBadgeNode.setAttribute("class", "postBadge");
 					vDivBadgeNode.setAttribute("style", "margin-right : 10px; float:left;");
@@ -714,6 +716,41 @@
 					//sOutput = sOutput + (sOutput.length == 0 ? "<tbody data-link='row' class='rowlink'>" : "") + sElem;
 
 					vLiveSearchElem.insertBefore(vTRNode, vSpinnerRowNode);
+
+					$('.searchResult').hover(
+						function() {
+							var vOldActiveResult = document.getElementsByClassName("activeSearchResult")[0];
+							$(".activeSearchResult").removeClass("activeSearchResult");
+							vOldActiveResult.removeAttribute("rowIndex");
+							$(this).addClass('activeSearchResult');
+
+						// Set valid rowIndex for keyboard navigation.
+						console.log("here");
+						var vTRNodes = $("#liveSearch").find('tr');
+
+						var sHref = $(this).find("a")[0].href;
+						console.log(sHref);
+						console.log(vTRNodes);
+						$.each(vTRNodes, function(index, vNode) {
+							console.log(vNode);
+
+							var vNodeHref = $(vNode).find("a")[0];
+							if (vNodeHref != null) {
+								var sNodeHref = $(vNode).find("a")[0].href;
+								console.log(sNodeHref);
+
+								if (sHref === sNodeHref) {
+									console.log("MATCHED: " + index);
+									vNode.setAttribute("rowIndex", index);
+									return;
+								}
+							}
+						});
+
+						}, function() {
+							//$(this).removeClass('activeSearchResult');
+							}
+						);
 				}
 				console.log(sOutput);
 				sOutput += "</tbody>"
@@ -721,6 +758,20 @@
 				var bSearchFoundAnyFile = false;
 				var sResults = vLiveSearchElem.innerHTML;
 				bSearchFoundAnyFile = sResults.length > 0 && sResults !== "No results found";
+			}
+
+			function onMouseOver_SearchRes(vNewActiveElem) {
+			console.log("here");
+			window.alert("here");
+
+				var vOldActiveResult = document.getElementsByClassName("activeSearchResult")[0];
+				console.log(vOldActiveResult);
+
+				vOldActiveResult.removeAttribute("class");
+				vOldActiveResult.removeAttribute("rowIndex");
+
+				vNewActiveElem.setAttribute("class", "activeSearchResult");
+				vNewActiveElem.setAttribute("rowIndex", iNewNdx);
 			}
 
 			function doLight()
