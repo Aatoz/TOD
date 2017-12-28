@@ -287,12 +287,12 @@
 				// Load the last g_iDays.
 				for (var iCnt = 0; iCnt < g_iDays; iCnt++)
 				{
-          if (g_iDocCount == 5)
-             {
-                g_bLoaded = true;
-                return;
-             }
-        
+					if (g_iDocCount == 5)
+					{
+						g_bLoaded = true;
+						return;
+					}
+
 					var xhttp;
 					if (window.XMLHttpRequest) {
 						// code for modern browsers
@@ -322,12 +322,14 @@
 					console.log(sDateStr);
 					xhttp.send();
 				}
+
+				resizeSearchResToMatchParent();
 			}
 
 			function parseXML(vHttp) {
 				g_iDocCount++;
-        if (g_iDocCount == 5)
-           return;
+				if (g_iDocCount == 5)
+					return;
 
 				vXMLDoc = vHttp.responseXML;
 				console.log(vHttp.responseURL);
@@ -514,6 +516,24 @@
 					document.getElementById("noResultsRow").style.display = "none";
 			}
 
+			var g_bResized = false;
+			function resizeSearchResToMatchParent() {
+				if (g_bResized)
+					return;
+
+				// Resize to match search box.
+				var vTable = document.getElementById("searchTable");
+
+				var vSearchRect = document.getElementById("searchSubmit").getBoundingClientRect();
+				vTable.style.width = (parseInt(document.getElementById("searchField").offsetWidth) + parseInt(vSearchRect.width) - 10) + "px";
+				console.log("TABLE WIDTH: " + vTable.style.width);
+
+				var rect = document.getElementById("searchField").getBoundingClientRect();
+				vTable.style.left = rect.left + "px";
+
+				g_bResized = true;
+			}
+
 			function searchFocus(iCode) {
 				var vResults = document.getElementById("livesearch").getElementsByTagName("tr");
 				console.log(vResults);
@@ -525,12 +545,16 @@
 				var bMoveUp = iCode == 38;
 				var bMoveDown = iCode == 40;
 				var bPageUp = iCode == 33;
-				var bPageDown = iCode == 44;
+				var bPageDown = iCode == 34;
 
 				var iResultNdx = vActiveResult.rowIndex;
 				var iNewNdx = iResultNdx + 1;
 				if (bMoveUp)
 					iNewNdx = iResultNdx - 1;
+				else if (bPageUp)
+					iNewNdx = 0;
+				else if (bPageDown)
+					iNewNdx = iTotalResults - 1;
 
 				console.log(iResultNdx);
 				console.log(iNewNdx);
@@ -697,22 +721,6 @@
 				var bSearchFoundAnyFile = false;
 				var sResults = vLiveSearchElem.innerHTML;
 				bSearchFoundAnyFile = sResults.length > 0 && sResults !== "No results found";
-
-				//vNode.innerHTML = sOutput;
-				//if (bSearchFoundAnyFile)
-					//vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
-					//vLiveSearchElem.innerHTML += sOutput;
-				//else vLiveSearchElem.innerHTML = sOutput;
-				//else vSpinnerNode.insertBefore(vNode, vLiveSearchElem);
-
-				//vLiveSearchElem.innerHTML = sOutput;
-
-				// Resize to match search box.
-				var vTable = document.getElementById("searchTable");
-				vTable.style.border = "1px solid #A5ACB2";
-				vTable.style.width = document.getElementById("searchField").offsetWidth + "px";
-				var rect = document.getElementById("searchField").getBoundingClientRect();
-				vTable.style.left = rect.left + "px";
 			}
 
 			function doLight()
