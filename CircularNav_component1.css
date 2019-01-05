@@ -1,3 +1,25 @@
+button.cn-button {
+    outline: none;
+    background-color: #1eb35a;
+    color: white;
+}
+
+.cn-wrapper *,
+*[class*="cn-"],
+*[class*="csst"] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 .csstransforms .cn-wrapper {
   font-size: 1em;
   width: 26em;
