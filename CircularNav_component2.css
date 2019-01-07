@@ -9,11 +9,11 @@
 }
 
 .component2 {
-	position: relative;
-	margin-bottom: 3em;
-	height: 15em;
-	background: rgba(0,0,0,0.05);
-	font-family: 'Lato', Arial, sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(0,0,0,.05);
+    font-family: lato,Arial,sans-serif;
 }
 
 .component2 > h2 {
