@@ -162,6 +162,7 @@
 	font-size: .5em;
 	font-weight: 700;
 	text-transform: uppercase;
+	color: #dadada !important;
 }
 
 .csstransforms .cn-wrapper2 li a:hover,
