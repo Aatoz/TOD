@@ -1,4 +1,4 @@
-.cn-wrapper22 *,
+.cn-wrapper2 *,
 *[class*="cn-"],
 *[class*="csst"] {
 	position: relative;
@@ -31,7 +31,7 @@
 	cursor: default;
 }
 
-.cn-button {
+.cn-button2 {
 	position: absolute;
 	top: 100%;
 	left: 50%;
@@ -94,7 +94,7 @@
   color: transparent;
 }
 
-.csstransforms .opened-nav {
+.csstransforms .opened-nav2 {
 	border-radius: 50%;
 	opacity: 1;
 	-webkit-transition: all .3s ease;
@@ -176,55 +176,55 @@
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
 }
 
-.csstransforms .opened-nav li {
+.csstransforms .opened-nav2 li {
 	-webkit-transition: all .3s ease .3s;
 	-moz-transition: all .3s ease .3s;
 	transition: all .3s ease .3s;
 }
 
-.csstransforms .opened-nav li:first-child {
+.csstransforms .opened-nav2 li:first-child {
 	-webkit-transform: rotate(-20deg) skew(60deg);
 	-moz-transform: rotate(-20deg) skew(60deg);
 	-ms-transform: rotate(-20deg) skew(60deg);
 	transform: rotate(-20deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(2) {
+.csstransforms .opened-nav2 li:nth-child(2) {
 	-webkit-transform: rotate(12deg) skew(60deg);
 	-moz-transform: rotate(12deg) skew(60deg);
 	-ms-transform: rotate(12deg) skew(60deg);
 	transform: rotate(12deg) skew(60deg);
 }
 
-.csstransforms .opened-nav  li:nth-child(3) {
+.csstransforms .opened-nav2  li:nth-child(3) {
 	-webkit-transform: rotate(44deg) skew(60deg);
 	-moz-transform: rotate(44deg) skew(60deg);
 	-ms-transform: rotate(44deg) skew(60deg);
 	transform: rotate(44deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(4) {
+.csstransforms .opened-nav2 li:nth-child(4) {
 	-webkit-transform: rotate(76deg) skew(60deg);
 	-moz-transform: rotate(76deg) skew(60deg);
 	-ms-transform: rotate(76deg) skew(60deg);
 	transform: rotate(76deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(5) {
+.csstransforms .opened-nav2 li:nth-child(5) {
 	-webkit-transform: rotate(108deg) skew(60deg);
 	-moz-transform: rotate(108deg) skew(60deg);
 	-ms-transform: rotate(108deg) skew(60deg);
 	transform: rotate(108deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(6) {
+.csstransforms .opened-nav2 li:nth-child(6) {
 	-webkit-transform: rotate(140deg) skew(60deg);
 	-moz-transform: rotate(140deg) skew(60deg);
 	-ms-transform: rotate(140deg) skew(60deg);
 	transform: rotate(140deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(7) {
+.csstransforms .opened-nav2 li:nth-child(7) {
 	-webkit-transform: rotate(172deg) skew(60deg);
 	-moz-transform: rotate(172deg) skew(60deg);
 	-ms-transform: rotate(172deg) skew(60deg);
