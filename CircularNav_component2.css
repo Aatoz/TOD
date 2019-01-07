@@ -168,9 +168,9 @@
 .csstransforms .cn-wrapper2 li a:hover,
 .csstransforms .cn-wrapper2 li a:active,
 .csstransforms .cn-wrapper2 li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, #449e6a 35%);
-	background: -moz-radial-gradient(transparent 35%, #449e6a 35%);
-	background: radial-gradient(transparent 35%, #449e6a 35%);
+	background: -webkit-radial-gradient(transparent 35%, #4F5964 35%);
+	background: -moz-radial-gradient(transparent 35%, #4F5964 35%);
+	background: radial-gradient(transparent 35%, #4F5964 35%);
 }
 .csstransforms .cn-wrapper2 li a:focus {
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
@@ -263,7 +263,7 @@
 .no-csstransforms .cn-wrapper2 li a:hover,
 .no-csstransforms .cn-wrapper2 li a:active,
 .no-csstransforms .cn-wrapper2 li a:focus {
-	background-color: #f8f8f8;
+	background-color: #4F5964;
 }
 
 .no-csstransforms .cn-wrapper2 li.active a{
