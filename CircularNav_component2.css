@@ -9,11 +9,11 @@
 }
 
 .component2 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: rgba(0,0,0,.05);
-    font-family: lato,Arial,sans-serif;
+	position: relative;
+	margin-bottom: 3em;
+	height: 15em;
+	background: rgba(0,0,0,0.05);
+	font-family: 'Lato', Arial, sans-serif;
 }
 
 .component2 > h2 {
@@ -55,19 +55,19 @@
 
 .csstransforms .cn-wrapper2 {
 	position: absolute;
-	top: 100%;
-	left: 50%;
+	top: 95%;
+	left: 51%;
 	z-index: 10;
-	margin-top: -13em;
-	margin-left: -13.5em;
-	width: 27em;
-	height: 27em;
+	margin-top: -24em;
+	margin-left: -30.7em;
+	width: 60em;
+	height: 52em;
 	border-radius: 50%;
 	background: transparent;
 	opacity: 0;
-	-webkit-transition: all .15s ease 0.15s;
-	-moz-transition: all .15s ease 0.15s;
-	transition: all .15s ease 0.15s;
+	-webkit-transition: all .3s ease 0.3s;
+	-moz-transition: all .3s ease 0.3s;
+	transition: all .3s ease 0.3s;
 	-webkit-transform: scale(0.1);
 	-ms-transform: scale(0.1);
 	-moz-transform: scale(0.1);
@@ -93,12 +93,12 @@
   color: transparent;
 }
 
-.csstransforms .opened-nav2 {
+.csstransforms .opened-nav {
 	border-radius: 50%;
 	opacity: 1;
-	-webkit-transition: all .15s ease;
-	-moz-transition: all .15s ease;
-	transition: all .15s ease;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	transition: all .3s ease;
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);
@@ -108,17 +108,17 @@
 
 .csstransforms .cn-wrapper2 li {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	/*top: 50%;
+	left: 50%;*/
 	overflow: hidden;
-	margin-top: -1.3em;
-	margin-left: -10em;
-	width: 10em;
-	height: 10em;
-	font-size: 1.5em;
-	-webkit-transition: all .15s ease;
-	-moz-transition: all .15s ease;
-	transition: all .15s ease;
+	margin-top: -8.3em;
+	margin-left: -7em;
+	width: 19em;
+	height: 19em;
+	font-size: 2.5em;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	transition: all .3s ease;
 	-webkit-transform: rotate(76deg) skew(60deg);
 	-moz-transform: rotate(76deg) skew(60deg);
 	-ms-transform: rotate(76deg) skew(60deg);
@@ -137,15 +137,15 @@
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: #2f475e;
-	background: -webkit-radial-gradient(transparent 35%, #2f475e 35%);
-	background: -moz-radial-gradient(transparent 35%, #2f475e 35%);
-	background: radial-gradient(transparent 35%, #2f475e 35%);
-	color: #dadada !important;
+	background: #429a67;
+	background: -webkit-radial-gradient(transparent 35%, #429a67 35%);
+	background: -moz-radial-gradient(transparent 35%, #429a67 35%);
+	background: radial-gradient(transparent 35%, #429a67 35%);
+	color: #fff;
 	text-align: center;
 	text-decoration: none;
-	font-size: 1.2em;
-	line-height: 2;
+	font-size: 1.5em;
+	line-height: 1;
 	-webkit-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-moz-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-ms-transform: skew(-60deg) rotate(-75deg) scale(1);
@@ -157,73 +157,73 @@
 
 .csstransforms .cn-wrapper2 li a span {
 	position: relative;
-	top: 1.8em;
+	top: 0.8em;
 	display: block;
-	font-size: .5em;
+	font-size: 0.25em;
 	font-weight: 700;
-	color: #dadada !important;
+	text-transform: uppercase;
 }
 
 .csstransforms .cn-wrapper2 li a:hover,
 .csstransforms .cn-wrapper2 li a:active,
 .csstransforms .cn-wrapper2 li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, #4F5964 35%);
-	background: -moz-radial-gradient(transparent 35%, #4F5964 35%);
-	background: radial-gradient(transparent 35%, #4F5964 35%);
+	background: -webkit-radial-gradient(transparent 35%, #449e6a 35%);
+	background: -moz-radial-gradient(transparent 35%, #449e6a 35%);
+	background: radial-gradient(transparent 35%, #449e6a 35%);
 }
 .csstransforms .cn-wrapper2 li a:focus {
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
 }
 
-.csstransforms .opened-nav2 li {
-	-webkit-transition: all .15s ease .15s;
-	-moz-transition: all .15s ease .15s;
-	transition: all .15s ease .15s;
+.csstransforms .opened-nav li {
+	-webkit-transition: all .3s ease .3s;
+	-moz-transition: all .3s ease .3s;
+	transition: all .3s ease .3s;
 }
 
-.csstransforms .opened-nav2 li:first-child {
+.csstransforms .opened-nav li:first-child {
 	-webkit-transform: rotate(-20deg) skew(60deg);
 	-moz-transform: rotate(-20deg) skew(60deg);
 	-ms-transform: rotate(-20deg) skew(60deg);
 	transform: rotate(-20deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2 li:nth-child(2) {
+.csstransforms .opened-nav li:nth-child(2) {
 	-webkit-transform: rotate(12deg) skew(60deg);
 	-moz-transform: rotate(12deg) skew(60deg);
 	-ms-transform: rotate(12deg) skew(60deg);
 	transform: rotate(12deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2  li:nth-child(3) {
+.csstransforms .opened-nav  li:nth-child(3) {
 	-webkit-transform: rotate(44deg) skew(60deg);
 	-moz-transform: rotate(44deg) skew(60deg);
 	-ms-transform: rotate(44deg) skew(60deg);
 	transform: rotate(44deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2 li:nth-child(4) {
+.csstransforms .opened-nav li:nth-child(4) {
 	-webkit-transform: rotate(76deg) skew(60deg);
 	-moz-transform: rotate(76deg) skew(60deg);
 	-ms-transform: rotate(76deg) skew(60deg);
 	transform: rotate(76deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2 li:nth-child(5) {
+.csstransforms .opened-nav li:nth-child(5) {
 	-webkit-transform: rotate(108deg) skew(60deg);
 	-moz-transform: rotate(108deg) skew(60deg);
 	-ms-transform: rotate(108deg) skew(60deg);
 	transform: rotate(108deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2 li:nth-child(6) {
+.csstransforms .opened-nav li:nth-child(6) {
 	-webkit-transform: rotate(140deg) skew(60deg);
 	-moz-transform: rotate(140deg) skew(60deg);
 	-ms-transform: rotate(140deg) skew(60deg);
 	transform: rotate(140deg) skew(60deg);
 }
 
-.csstransforms .opened-nav2 li:nth-child(7) {
+.csstransforms .opened-nav li:nth-child(7) {
 	-webkit-transform: rotate(172deg) skew(60deg);
 	-moz-transform: rotate(172deg) skew(60deg);
 	-ms-transform: rotate(172deg) skew(60deg);
@@ -262,15 +262,15 @@
 .no-csstransforms .cn-wrapper2 li a:hover,
 .no-csstransforms .cn-wrapper2 li a:active,
 .no-csstransforms .cn-wrapper2 li a:focus {
-	background-color: #4F5964;
+	background-color: #f8f8f8;
 }
 
 .no-csstransforms .cn-wrapper2 li.active a{
 	background-color: #6F325C;
-	color: #dadada !important;
+	color: #fff;
 }
 
-.no-csstransforms .cn-button {
+.no-csstransforms .cn-button2 {
 	display: none;
 }
 
@@ -300,7 +300,7 @@
 		font-size: .68em;
 	}
 
-	.cn-button {
+	.cn-button2 {
 		font-size: 1em;
 	}
 }
