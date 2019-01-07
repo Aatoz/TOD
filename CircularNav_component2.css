@@ -65,9 +65,9 @@
 	border-radius: 50%;
 	background: transparent;
 	opacity: 0;
-	-webkit-transition: all .3s ease 0.3s;
-	-moz-transition: all .3s ease 0.3s;
-	transition: all .3s ease 0.3s;
+	-webkit-transition: all .15s ease 0.15s;
+	-moz-transition: all .15s ease 0.15s;
+	transition: all .15s ease 0.15s;
 	-webkit-transform: scale(0.1);
 	-ms-transform: scale(0.1);
 	-moz-transform: scale(0.1);
@@ -96,9 +96,9 @@
 .csstransforms .opened-nav2 {
 	border-radius: 50%;
 	opacity: 1;
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	transition: all .3s ease;
+	-webkit-transition: all .15s ease;
+	-moz-transition: all .15s ease;
+	transition: all .15s ease;
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);
@@ -116,9 +116,9 @@
 	width: 10em;
 	height: 10em;
 	font-size: 1.5em;
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	transition: all .3s ease;
+	-webkit-transition: all .15s ease;
+	-moz-transition: all .15s ease;
+	transition: all .15s ease;
 	-webkit-transform: rotate(76deg) skew(60deg);
 	-moz-transform: rotate(76deg) skew(60deg);
 	-ms-transform: rotate(76deg) skew(60deg);
@@ -177,9 +177,9 @@
 }
 
 .csstransforms .opened-nav2 li {
-	-webkit-transition: all .3s ease .3s;
-	-moz-transition: all .3s ease .3s;
-	transition: all .3s ease .3s;
+	-webkit-transition: all .15s ease .15s;
+	-moz-transition: all .15s ease .15s;
+	transition: all .15s ease .15s;
 }
 
 .csstransforms .opened-nav2 li:first-child {
