@@ -36,9 +36,9 @@ body {
   -moz-transform: scale(0.1);
   transform: scale(0.1);
   pointer-events: none;
-  -webkit-transition: all .1s ease;
-  -moz-transition: all .1s ease;
-  transition: all .1s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 .csstransforms .opened-nav {
@@ -61,9 +61,9 @@ body {
   right: 0;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all .1s ease;
-  -moz-transition: all .1s ease;
-  transition: all .1s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
   z-index: 2;
 }
 
@@ -111,9 +111,9 @@ body {
   top: 50%;
   margin-top: -1.3em;
   margin-left: -10em;
-  -webkit-transition: border .1s ease;
-  -moz-transition: border .1s ease;
-  transition: border .1s ease;
+  -webkit-transition: border .3s ease;
+  -moz-transition: border .3s ease;
+  transition: border .3s ease;
 }
 
 .csstransforms .cn-wrapper li a {
@@ -134,9 +134,9 @@ body {
   -moz-transform: skew(-50deg) rotate(-70deg) scale(1);
   transform: skew(-50deg) rotate(-70deg) scale(1);
   -webkit-backface-visibility: hidden;
-  -webkit-transition: opacity 0.1s, color 0.1s;
-  -moz-transition: opacity 0.1s, color 0.1s;
-  transition: opacity 0.1s, color 0.1s;
+  -webkit-transition: opacity 0.3s, color 0.3s;
+  -moz-transition: opacity 0.3s, color 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
 .csstransforms .cn-wrapper li a span {
