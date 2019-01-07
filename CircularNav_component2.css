@@ -137,11 +137,11 @@
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: #429a67;
-	background: -webkit-radial-gradient(transparent 35%, #429a67 35%);
-	background: -moz-radial-gradient(transparent 35%, #429a67 35%);
-	background: radial-gradient(transparent 35%, #429a67 35%);
-	color: #fff;
+	background: #2f475e;
+	background: -webkit-radial-gradient(transparent 35%, #2f475e 35%);
+	background: -moz-radial-gradient(transparent 35%, #2f475e 35%);
+	background: radial-gradient(transparent 35%, #2f475e 35%);
+	color: #dadada !important;
 	text-align: center;
 	text-decoration: none;
 	font-size: 1.2em;
@@ -267,7 +267,7 @@
 
 .no-csstransforms .cn-wrapper2 li.active a{
 	background-color: #6F325C;
-	color: #fff;
+	color: #dadada !important;
 }
 
 .no-csstransforms .cn-button {
