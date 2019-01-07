@@ -5,8 +5,7 @@ button.cn-button {
 }
 
 .cn-wrapper *,
-*[class*="cn-"],
-*[class*="csst"] {
+.cn-button {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;

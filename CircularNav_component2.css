@@ -1,6 +1,5 @@
 .cn-wrapper2 *,
-*[class*="cn-"],
-*[class*="csst"] {
+.cn-button2 {
 	position: relative;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
