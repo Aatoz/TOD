@@ -1,6 +1,6 @@
 button.cn-button {
     outline: none;
-    background-color: #1eb35a;
+    background-color: #7ca8de;
     color: white;
 }
 
@@ -94,7 +94,7 @@ body {
 .cn-button:hover,
 .cn-button:active,
 .cn-button:focus {
-  color: #aa1010;
+  color: #262626;
 }
 
 .csstransforms .cn-wrapper li {
