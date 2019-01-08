@@ -9,8 +9,10 @@
 }
 
 .component2 {
-	position: relative;
-	margin-bottom: 3em;
+	position: absolute;
+	/*margin-bottom: 3em;*/
+	left: 0%;
+	top: 100%;
 	height: 15em;
 	background: rgba(0,0,0,0.05);
 	font-family: 'Lato', Arial, sans-serif;
@@ -55,13 +57,13 @@
 
 .csstransforms .cn-wrapper2 {
 	position: absolute;
-	top: 95%;
-	left: 51%;
+	top: 100%;
+	left: 50%;
 	z-index: 10;
-	margin-top: -24em;
-	margin-left: -30.7em;
-	width: 60em;
-	height: 52em;
+	margin-top: -22em;
+	/&margin-left: -30.7em;&/
+	width: 87em;
+	height: 55em;
 	border-radius: 50%;
 	background: transparent;
 	opacity: 0;
@@ -111,11 +113,11 @@
 	/*top: 50%;
 	left: 50%;*/
 	overflow: hidden;
-	margin-top: -8.3em;
-	margin-left: -7em;
+	margin-top: -7.8em;
+	margin-left: -4em;
 	width: 19em;
 	height: 19em;
-	font-size: 2.5em;
+	font-size: 3em;
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
 	transition: all .3s ease;
