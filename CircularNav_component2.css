@@ -34,8 +34,7 @@
 
 .cn-button2 {
 	position: absolute;
-	top: 100%;
-	left: 50%;
+	top: 50%;
 	z-index: 11;
 	margin-top: -2.25em;
 	margin-left: -2.25em;
@@ -57,11 +56,11 @@
 
 .csstransforms .cn-wrapper2 {
 	position: absolute;
-	top: 100%;
-	left: 50%;
+	/*top: 100%;
+	left: 50%;*/
 	z-index: 10;
 	margin-top: -22em;
-	/*margin-left: -30.7em;*/
+	margin-left: -45.2em;
 	width: 87em;
 	height: 55em;
 	border-radius: 50%;
