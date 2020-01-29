@@ -1,5 +1,6 @@
 :root
 {
+	color: rgb(255,255,255)
 	--background-color: #333333;
 	--bg-color-background: transparent !important;
 	--text-color: #000;
